@@ -1,0 +1,78 @@
+﻿@using CommonClasses.Helpers
+@using WebSite.Helpers
+@model WebSite.Models.MenuPartialModel
+@{
+    Layout = null;
+    string action = Url.RequestContext.RouteData.Values["action"].ToString();
+    string controller = Url.RequestContext.RouteData.Values["controller"].ToString();
+    string target =  Url.RequestContext.RouteData.Values["target"] == null ? null : Url.RequestContext.RouteData.Values["target"].ToString();
+    var menuCollection = Model.Collection;
+    var requestedItem = menuCollection.FirstOrDefault(x => x.Controller == controller && x.Action == action && x.TargetId == target);
+    var requiredId = ViewBag.EmpId ?? 0;
+}
+@if (requestedItem == null && action == "AccessError")
+{
+    requestedItem = new MenuLink {ItemLevel = 1};
+}
+
+@if(requestedItem != null)
+{
+
+    var collectionToRender = menuCollection.Where(x => x.ItemLevel == Model.LevelToRender);
+    if (Model.LevelToRender > 1)
+    {
+        if (requestedItem.ItemLevel == Model.LevelToRender)
+        {
+            collectionToRender = menuCollection.Where(x => x.ParentId == requestedItem.ParentId);
+        }
+        else
+        {
+            if (requestedItem.ItemLevel < Model.LevelToRender)
+            {
+                //since we have just 2 visible levels let's just grab first child items end render them
+                collectionToRender = menuCollection.Where(x => x.ParentId == requestedItem.MenuLinkId);
+            }
+            else
+            {
+                var parentitemId = MenuHelper.GetParentIdOfRelatedToRequestLevelOrNull(menuCollection, Model.LevelToRender, requestedItem);
+                collectionToRender = parentitemId == null ? null : menuCollection.Where(x => x.ParentId == parentitemId);
+            }
+
+        }
+    }
+
+    if (collectionToRender != null)
+    {
+        <ul id="@Model.MenuUlIdString">
+            @foreach (var l in collectionToRender)
+            {
+                var isActive = MenuHelper.CheckForRelationship(menuCollection, l, requestedItem) ? "active " : "";
+                var hasAccess = l.HasAccess ? " " : "noAccess";
+                var linkClass = isActive + hasAccess;
+                <li class="link-@l.MenuLinkId">
+                    @if(l.IsCategory)
+                    {
+                        <a href="#" class="category-link @linkClass">@l.Name</a>
+                        @Html.CategoryMenuContent(menuCollection, l.MenuLinkId, requestedItem)
+                    }
+                    else if (l.IdDependant)
+                    {
+                        if (l.TargetId != null)
+                        {
+                            requiredId = l.TargetId;
+                            @Html.ActionLink(l.Name, l.Action, l.Controller, new {target = requiredId}, new {@class = linkClass, title = l.Name})
+                        }
+                        else
+                        {
+                            @Html.ActionLink(l.Name, l.Action, l.Controller, new {id = requiredId}, new {@class = linkClass, title = l.Name})
+                        }
+                    }
+                    else
+                    {
+                        @Html.ActionLink(l.Name, l.Action, l.Controller, null, new { @class = linkClass, title = l.Name })
+                    }
+                </li>
+            }
+        </ul>
+    }
+}

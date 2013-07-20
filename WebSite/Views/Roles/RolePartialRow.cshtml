@@ -1,0 +1,19 @@
+﻿@using CommonClasses
+@using CommonClasses.Models
+@using WebSite.Helpers
+@model RoleModel
+@{
+    Layout = null;
+    var roleAccessClass = SessionHelper.Permissions.IsGranted(AccessComponent.Roles, AccessLevel.ReadWrite) ? "" : "noAccess";
+}
+<tr class="active-row" id="@Model.RoleId" data-users="@Model.UserNames">
+    <td class="ps-name">@Model.Name</td>
+    <td class="ps-action">
+        <span class="edit iconed-button @roleAccessClass" title="Редактировать">Редактировать</span>
+        <span class="copy iconed-button @roleAccessClass" title="Копировать">Копировать</span>
+        @if (!Model.IsReadOnly)
+        {
+            <span class="delete iconed-button @roleAccessClass" title="Удалить">Удалить</span>
+        }
+    </td>
+</tr>

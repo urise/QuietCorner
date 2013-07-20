@@ -1,0 +1,450 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{4E592ADC-4CDD-4186-AFF3-F735C99E016A}</ProjectGuid>
+    <ProjectTypeGuids>{E3E379DF-F4C6-4180-9B81-6769533ABE47};{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>WebSite</RootNamespace>
+    <AssemblyName>WebSite</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <MvcBuildViews>false</MvcBuildViews>
+    <UseIISExpress>true</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\</SolutionDir>
+    <RestorePackages>true</RestorePackages>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="ActionMailer.Net">
+      <HintPath>..\packages\ActionMailer.0.7.4\lib\Net40\ActionMailer.Net.dll</HintPath>
+    </Reference>
+    <Reference Include="ActionMailer.Net.Mvc">
+      <HintPath>..\packages\ActionMailer.0.7.4\lib\Net40\ActionMailer.Net.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\packages\Newtonsoft.Json.5.0.6\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Abstractions" />
+    <Reference Include="System.Web.Routing" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http">
+    </Reference>
+    <Reference Include="System.Net.Http.Formatting, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.4.0.20710.0\lib\net40\System.Net.Http.Formatting.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http.WebRequest">
+    </Reference>
+    <Reference Include="System.Web.Helpers, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.2.0.20710.0\lib\net40\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Core.4.0.20710.0\lib\net40\System.Web.Http.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http.WebHost, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.WebHost.4.0.20710.0\lib\net40\System.Web.Http.WebHost.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.4.0.20710.0\lib\net40\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Razor.2.0.20715.0\lib\net40\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.2.0.20710.0\lib\net40\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.2.0.20710.0\lib\net40\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.2.0.20710.0\lib\net40\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Controllers\EmailController.cs" />
+    <Compile Include="Controllers\ErrorController.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\InstanceController.cs" />
+    <Compile Include="Controllers\LoginController.cs" />
+    <Compile Include="Controllers\RolesController.cs" />
+    <Compile Include="Controllers\UsersController.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Helpers\MenuCollection.cs" />
+    <Compile Include="Helpers\MenuHelper.cs" />
+    <Compile Include="Helpers\PermissionsAttribute.cs" />
+    <Compile Include="Helpers\SessionAuthorize.cs" />
+    <Compile Include="Helpers\SessionHelper.cs" />
+    <Compile Include="Models\MenuPartialModel.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\FilterConfig.cs" />
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="App_Start\WebApiConfig.cs" />
+    <Content Include="Content\images\alp_ukr.png" />
+    <Content Include="Content\images\arrow_ex.png" />
+    <Content Include="Content\images\arrow_ex_black.png" />
+    <Content Include="Content\images\arrow_lr.png" />
+    <Content Include="Content\images\bg.png" />
+    <Content Include="Content\images\big_logo.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\images\bred.png" />
+    <Content Include="Content\images\exit.png" />
+    <Content Include="Content\images\filterArrows.png" />
+    <Content Include="Content\images\h3_bg_line.png" />
+    <Content Include="Content\images\icon-cog-small.png" />
+    <Content Include="Content\images\icon16_apply.png" />
+    <Content Include="Content\images\icon16_apply_gray.png" />
+    <Content Include="Content\images\icon16_apply_orange.png" />
+    <Content Include="Content\images\icon16_bankpayroll.png" />
+    <Content Include="Content\images\icon16_browse.png" />
+    <Content Include="Content\images\icon16_brush.png" />
+    <Content Include="Content\images\icon16_checked.png" />
+    <Content Include="Content\images\icon16_checkedDimmed.png" />
+    <Content Include="Content\images\icon16_close.png" />
+    <Content Include="Content\images\icon16_closeBW.png" />
+    <Content Include="Content\images\icon16_close_dialog.png" />
+    <Content Include="Content\images\icon16_company.png" />
+    <Content Include="Content\images\icon16_copy.PNG" />
+    <Content Include="Content\images\icon16_doc.png" />
+    <Content Include="Content\images\icon16_doc1.png" />
+    <Content Include="Content\images\icon16_draggable.png" />
+    <Content Include="Content\images\icon16_edit.png" />
+    <Content Include="Content\images\icon16_extensible.png" />
+    <Content Include="Content\images\icon16_finkey.png" />
+    <Content Include="Content\images\icon16_historywhite.png" />
+    <Content Include="Content\images\icon16_lock.png" />
+    <Content Include="Content\images\icon16_massAct.png" />
+    <Content Include="Content\images\icon16_massPayroll.png" />
+    <Content Include="Content\images\icon16_massSalary.png" />
+    <Content Include="Content\images\icon16_massVedomost.png" />
+    <Content Include="Content\images\icon16_ok.png" />
+    <Content Include="Content\images\icon16_pdf.png" />
+    <Content Include="Content\images\icon16_pdfBW.png" />
+    <Content Include="Content\images\icon16_pinch.png" />
+    <Content Include="Content\images\icon16_plus.png" />
+    <Content Include="Content\images\icon16_pluswhite.png" />
+    <Content Include="Content\images\icon16_save.png" />
+    <Content Include="Content\images\icon16_saveBW.png" />
+    <Content Include="Content\images\icon16_screamer.png" />
+    <Content Include="Content\images\icon16_search.png" />
+    <Content Include="Content\images\icon16_trash.png" />
+    <Content Include="Content\images\icon16_trashBW.png" />
+    <Content Include="Content\images\icon16_trashwhite.png" />
+    <Content Include="Content\images\icon16_undo.png" />
+    <Content Include="Content\images\icon16_undoBW.png" />
+    <Content Include="Content\images\icon16_undowhite.png" />
+    <Content Include="Content\images\icon16_unlock.png" />
+    <Content Include="Content\images\icon16_zoom.png" />
+    <Content Include="Content\images\icon28_select.png" />
+    <Content Include="Content\images\icon32_act.png" />
+    <Content Include="Content\images\icon32_alert.png" />
+    <Content Include="Content\images\icon32_people.png" />
+    <Content Include="Content\images\icon58_newcompany.png" />
+    <Content Include="Content\images\icon_comment.png" />
+    <Content Include="Content\images\icon_company_black.png" />
+    <Content Include="Content\images\icon_future.png" />
+    <Content Include="Content\images\loader.gif" />
+    <Content Include="Content\images\login-sprite.png" />
+    <Content Include="Content\images\login-sprite_black.PNG" />
+    <Content Include="Content\images\logo.png" />
+    <Content Include="Content\images\no_name.png" />
+    <Content Include="Content\images\no_name_changed.png" />
+    <Content Include="Content\images\save.png" />
+    <Content Include="Content\images\undo.png" />
+    <Content Include="Content\jquery-ui\images\ui-bg_diagonals-thick_18_b81900_40x40.png" />
+    <Content Include="Content\jquery-ui\images\ui-bg_diagonals-thick_20_666666_40x40.png" />
+    <Content Include="Content\jquery-ui\images\ui-bg_flat_10_000000_40x100.png" />
+    <Content Include="Content\jquery-ui\images\ui-bg_glass_100_f6f6f6_1x400.png" />
+    <Content Include="Content\jquery-ui\images\ui-bg_glass_100_fdf5ce_1x400.png" />
+    <Content Include="Content\jquery-ui\images\ui-bg_glass_65_ffffff_1x400.png" />
+    <Content Include="Content\jquery-ui\images\ui-bg_gloss-wave_35_f6a828_500x100.png" />
+    <Content Include="Content\jquery-ui\images\ui-bg_highlight-soft_100_eeeeee_1x100.png" />
+    <Content Include="Content\jquery-ui\images\ui-bg_highlight-soft_75_ffe45c_1x100.png" />
+    <Content Include="Content\jquery-ui\images\ui-icons_222222_256x240.png" />
+    <Content Include="Content\jquery-ui\images\ui-icons_228ef1_256x240.png" />
+    <Content Include="Content\jquery-ui\images\ui-icons_ef8c08_256x240.png" />
+    <Content Include="Content\jquery-ui\images\ui-icons_ffd27a_256x240.png" />
+    <Content Include="Content\jquery-ui\images\ui-icons_ffffff_256x240.png" />
+    <Content Include="Content\jquery-ui\jquery-ui-1.9.2.custom.css" />
+    <Content Include="Content\jquery-ui\jquery.toolbars.css" />
+    <Content Include="Content\jquery-ui\localizations\jquery-ui-i18n.js" />
+    <Content Include="Content\jquery-ui\localizations\jquery.ui.datepicker-af.js" />
+    <Content Include="Content\jquery-ui\localizations\jquery.ui.datepicker-ar-DZ.js" />
+    <Content Include="Content\jquery-ui\localizations\jquery.ui.datepicker-ar.js" />
+    <Content Include="Content\jquery-ui\localizations\jquery.ui.datepicker-az.js" />
+    <Content Include="Content\jquery-ui\localizations\jquery.ui.datepicker-bg.js" />
+    <Content Include="Content\jquery-ui\localizations\jquery.ui.datepicker-bs.js" />
+    <Content Include="Content\jquery-ui\localizations\jquery.ui.datepicker-ca.js" />
+    <Content Include="Content\jquery-ui\localizations\jquery.ui.datepicker-cs.js" />
+    <Content Include="Content\jquery-ui\localizations\jquery.ui.datepicker-cy-GB.js" />
+    <Content Include="Content\jquery-ui\localizations\jquery.ui.datepicker-da.js" />
+    <Content Include="Content\jquery-ui\localizations\jquery.ui.datepicker-de.js" />
+    <Content Include="Content\jquery-ui\localizations\jquery.ui.datepicker-el.js" />
+    <Content Include="Content\jquery-ui\localizations\jquery.ui.datepicker-en-AU.js" />
+    <Content Include="Content\jquery-ui\localizations\jquery.ui.datepicker-en-GB.js" />
+    <Content Include="Content\jquery-ui\localizations\jquery.ui.datepicker-en-NZ.js" />
+    <Content Include="Content\jquery-ui\localizations\jquery.ui.datepicker-eo.js" />
+    <Content Include="Content\jquery-ui\localizations\jquery.ui.datepicker-es.js" />
+    <Content Include="Content\jquery-ui\localizations\jquery.ui.datepicker-et.js" />
+    <Content Include="Content\jquery-ui\localizations\jquery.ui.datepicker-eu.js" />
+    <Content Include="Content\jquery-ui\localizations\jquery.ui.datepicker-fa.js" />
+    <Content Include="Content\jquery-ui\localizations\jquery.ui.datepicker-fi.js" />
+    <Content Include="Content\jquery-ui\localizations\jquery.ui.datepicker-fo.js" />
+    <Content Include="Content\jquery-ui\localizations\jquery.ui.datepicker-fr-CH.js" />
+    <Content Include="Content\jquery-ui\localizations\jquery.ui.datepicker-fr.js" />
+    <Content Include="Content\jquery-ui\localizations\jquery.ui.datepicker-gl.js" />
+    <Content Include="Content\jquery-ui\localizations\jquery.ui.datepicker-he.js" />
+    <Content Include="Content\jquery-ui\localizations\jquery.ui.datepicker-hi.js" />
+    <Content Include="Content\jquery-ui\localizations\jquery.ui.datepicker-hr.js" />
+    <Content Include="Content\jquery-ui\localizations\jquery.ui.datepicker-hu.js" />
+    <Content Include="Content\jquery-ui\localizations\jquery.ui.datepicker-hy.js" />
+    <Content Include="Content\jquery-ui\localizations\jquery.ui.datepicker-id.js" />
+    <Content Include="Content\jquery-ui\localizations\jquery.ui.datepicker-is.js" />
+    <Content Include="Content\jquery-ui\localizations\jquery.ui.datepicker-it.js" />
+    <Content Include="Content\jquery-ui\localizations\jquery.ui.datepicker-ja.js" />
+    <Content Include="Content\jquery-ui\localizations\jquery.ui.datepicker-ka.js" />
+    <Content Include="Content\jquery-ui\localizations\jquery.ui.datepicker-kk.js" />
+    <Content Include="Content\jquery-ui\localizations\jquery.ui.datepicker-km.js" />
+    <Content Include="Content\jquery-ui\localizations\jquery.ui.datepicker-ko.js" />
+    <Content Include="Content\jquery-ui\localizations\jquery.ui.datepicker-lb.js" />
+    <Content Include="Content\jquery-ui\localizations\jquery.ui.datepicker-lt.js" />
+    <Content Include="Content\jquery-ui\localizations\jquery.ui.datepicker-lv.js" />
+    <Content Include="Content\jquery-ui\localizations\jquery.ui.datepicker-mk.js" />
+    <Content Include="Content\jquery-ui\localizations\jquery.ui.datepicker-ml.js" />
+    <Content Include="Content\jquery-ui\localizations\jquery.ui.datepicker-ms.js" />
+    <Content Include="Content\jquery-ui\localizations\jquery.ui.datepicker-nl-BE.js" />
+    <Content Include="Content\jquery-ui\localizations\jquery.ui.datepicker-nl.js" />
+    <Content Include="Content\jquery-ui\localizations\jquery.ui.datepicker-no.js" />
+    <Content Include="Content\jquery-ui\localizations\jquery.ui.datepicker-pl.js" />
+    <Content Include="Content\jquery-ui\localizations\jquery.ui.datepicker-pt-BR.js" />
+    <Content Include="Content\jquery-ui\localizations\jquery.ui.datepicker-pt.js" />
+    <Content Include="Content\jquery-ui\localizations\jquery.ui.datepicker-rm.js" />
+    <Content Include="Content\jquery-ui\localizations\jquery.ui.datepicker-ro.js" />
+    <Content Include="Content\jquery-ui\localizations\jquery.ui.datepicker-ru.js" />
+    <Content Include="Content\jquery-ui\localizations\jquery.ui.datepicker-sk.js" />
+    <Content Include="Content\jquery-ui\localizations\jquery.ui.datepicker-sl.js" />
+    <Content Include="Content\jquery-ui\localizations\jquery.ui.datepicker-sq.js" />
+    <Content Include="Content\jquery-ui\localizations\jquery.ui.datepicker-sr-SR.js" />
+    <Content Include="Content\jquery-ui\localizations\jquery.ui.datepicker-sr.js" />
+    <Content Include="Content\jquery-ui\localizations\jquery.ui.datepicker-sv.js" />
+    <Content Include="Content\jquery-ui\localizations\jquery.ui.datepicker-ta.js" />
+    <Content Include="Content\jquery-ui\localizations\jquery.ui.datepicker-th.js" />
+    <Content Include="Content\jquery-ui\localizations\jquery.ui.datepicker-tj.js" />
+    <Content Include="Content\jquery-ui\localizations\jquery.ui.datepicker-tr.js" />
+    <Content Include="Content\jquery-ui\localizations\jquery.ui.datepicker-uk.js" />
+    <Content Include="Content\jquery-ui\localizations\jquery.ui.datepicker-vi.js" />
+    <Content Include="Content\jquery-ui\localizations\jquery.ui.datepicker-zh-CN.js" />
+    <Content Include="Content\jquery-ui\localizations\jquery.ui.datepicker-zh-HK.js" />
+    <Content Include="Content\jquery-ui\localizations\jquery.ui.datepicker-zh-TW.js" />
+    <Content Include="Content\Site.css">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\themes\base\images\ui-bg_flat_0_aaaaaa_40x100.png" />
+    <Content Include="Content\themes\base\images\ui-bg_flat_75_ffffff_40x100.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_55_fbf9ee_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_65_ffffff_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_75_dadada_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_75_e6e6e6_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_95_fef1ec_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_highlight-soft_75_cccccc_1x100.png" />
+    <Content Include="Content\themes\base\images\ui-icons_222222_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_2e83ff_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_454545_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_888888_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_cd0a0a_256x240.png" />
+    <Content Include="Content\themes\base\jquery-ui.css" />
+    <Content Include="Content\themes\base\jquery.ui.accordion.css" />
+    <Content Include="Content\themes\base\jquery.ui.all.css" />
+    <Content Include="Content\themes\base\jquery.ui.autocomplete.css" />
+    <Content Include="Content\themes\base\jquery.ui.base.css" />
+    <Content Include="Content\themes\base\jquery.ui.button.css" />
+    <Content Include="Content\themes\base\jquery.ui.core.css" />
+    <Content Include="Content\themes\base\jquery.ui.datepicker.css" />
+    <Content Include="Content\themes\base\jquery.ui.dialog.css" />
+    <Content Include="Content\themes\base\jquery.ui.progressbar.css" />
+    <Content Include="Content\themes\base\jquery.ui.resizable.css" />
+    <Content Include="Content\themes\base\jquery.ui.selectable.css" />
+    <Content Include="Content\themes\base\jquery.ui.slider.css" />
+    <Content Include="Content\themes\base\jquery.ui.tabs.css" />
+    <Content Include="Content\themes\base\jquery.ui.theme.css" />
+    <Content Include="Global.asax" />
+    <Content Include="Scripts\CommonDynamicTable.js" />
+    <Content Include="Scripts\CompanyUser.js" />
+    <Content Include="Scripts\GlobalSetup.js" />
+    <None Include="Scripts\jquery-1.9.1.intellisense.js" />
+    <Content Include="Scripts\jquery-1.9.1.js" />
+    <Content Include="Scripts\jquery-1.9.1.min.js" />
+    <Content Include="Scripts\jquery-ui-1.9.2.custom.min.js" />
+    <Content Include="Scripts\jquery-ui-1.9.2.datepicker.min.js" />
+    <Content Include="Scripts\jquery-ui-1.9.2.dialog.min.js" />
+    <Content Include="Scripts\jquery.form.js" />
+    <Content Include="Scripts\jquery.placeholder.js" />
+    <Content Include="Scripts\jquery.toolbar.down.js" />
+    <Content Include="Scripts\jquery.unobtrusive-ajax.js" />
+    <Content Include="Scripts\jquery.unobtrusive-ajax.min.js" />
+    <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery.validate.js" />
+    <Content Include="Scripts\jquery.validate.min.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\RoleGeneral.js" />
+    <Content Include="Scripts\spin.min.js" />
+    <Content Include="Scripts\uiDialog\jquery-ui-1.8.custom.min.js" />
+    <Content Include="Scripts\uiDialog\jquery.effects.core.js" />
+    <Content Include="Scripts\uiDialog\jquery.effects.fade.js" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Views\Web.config" />
+    <Content Include="Views\Instance\Instance.cshtml" />
+    <Content Include="Views\Roles\Roles.cshtml" />
+    <Content Include="Views\Users\Users.cshtml" />
+    <Content Include="Views\Users\UserInfo.cshtml" />
+    <Content Include="Views\Roles\RolePartial.cshtml" />
+    <Content Include="Views\Roles\RolePartialRow.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Shared\AccessError.cshtml" />
+    <Content Include="Views\Shared\Error.cshtml" />
+    <Content Include="Views\Shared\PartialMenu.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Shared\_LogOnPartial.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\_ViewStart.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Login\ChangePassword.cshtml">
+      <SubType>Code</SubType>
+    </Content>
+    <Content Include="Views\Login\LogOn.cshtml" />
+    <Content Include="Views\Login\Register.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\CommonClasses\CommonClasses.csproj">
+      <Project>{44723a6a-7ee6-49bc-9d95-35c10178c99e}</Project>
+      <Name>CommonClasses</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Interfaces\Interfaces.csproj">
+      <Project>{8b749648-286d-4490-98e6-7c57fdcc1fc2}</Project>
+      <Name>Interfaces</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ServiceProxy\ServiceProxy.csproj">
+      <Project>{29d027e7-c6d9-4bf8-b766-8ee7d26f34c8}</Project>
+      <Name>ServiceProxy</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Email\ChangePasswordEmail.html.cshtml" />
+    <Content Include="Views\Email\ConfirmEmail.html.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Home\Home.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Scripts\jquery-1.9.1.min.map" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <Target Name="MvcBuildViews" AfterTargets="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">
+    <AspNetCompiler VirtualPath="temp" PhysicalPath="$(WebProjectOutputDir)" />
+  </Target>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>20717</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:36801/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Import Project="$(SolutionDir)\.nuget\nuget.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target> -->
+</Project>

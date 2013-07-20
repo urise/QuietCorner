@@ -1,0 +1,42 @@
+﻿
+@using CommonClasses
+@using CommonClasses.Models
+@model RoleModel
+@{
+    Layout = null;
+    var disabledReadOnly = (object)new { @readonly = "readonly", disabled = true };
+    var nameDisabled = (object)new { data_maxlength = 100, disabled = true };
+}
+<div class="role-content">
+    @Html.HiddenFor(x => x.RoleId)
+    @Html.HiddenFor(x => x.Type)
+    @Html.HiddenFor(x => x.UserNames)
+    <span class="role">Роль</span>@Html.TextBoxFor(x =>x.Name , Model.IsReadOnly ? nameDisabled : new { data_maxlength = 100 })
+
+    <div  class="table-wrapper">
+        <table>
+            <tr class="pseudo-th">
+                <th class="ps-access">Доступ</th>
+                <th class="ps-access-level">Уровень доступа</th>
+            </tr>
+        </table>
+        <div class="overbody">
+            <table>
+                @for(var i = 0; i < Model.Components.Count; i++)
+                {
+                    <tr class="active-row role-row" data-component="@Model.Components[i].ComponentId">
+                        <td>
+                            @Model.Components[i].Name
+                        </td>
+                        <td>
+                            @{ var disabled = Model.Components[i].Disabled; }
+                            @Html.RadioButtonFor(x => x.Components[i].Access, (int)AccessLevel.None, disabled ? disabledReadOnly : null) Запрещен
+                            @Html.RadioButtonFor(x => x.Components[i].Access, (int)AccessLevel.Read, !Model.Components[i].IsReadOnlyAccess || disabled ? disabledReadOnly : null) Просмотр
+                            @Html.RadioButtonFor(x => x.Components[i].Access, (int)AccessLevel.ReadWrite, disabled ? disabledReadOnly : null) Полный
+                        </td>
+                    </tr>
+                }
+            </table>
+        </div>
+    </div>
+</div>

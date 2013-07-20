@@ -1,0 +1,199 @@
+﻿@using CommonClasses
+@using CommonClasses.DbClasses
+@using CommonClasses.Helpers
+@using CommonClasses.InfoClasses
+@using WebSite.Helpers
+@model CommonClasses.Models.UserModel
+
+@{
+    ViewBag.Title = "Форма входа";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    var companies = ViewBag.UserCompanies as IList<Instance>;
+}
+
+@*<div class="big_logo"></div>*@
+<div id="login">
+    @if (SessionHelper.UserName == null)
+    {
+        using (Html.BeginForm())
+        {
+            <h1>Приветик!</h1>
+            @Html.ValidationSummary(true)
+            if (TempData["LoginErrors"] != null)
+            {
+                <p class="errorList">@TempData["LoginErrors"].ToString()</p>
+            }
+            else if (TempData["SuccessMessage"] != null)
+            {
+                <p class="successList">@TempData["SuccessMessage"].ToString()</p>
+            }
+            
+            <div id="inputs">
+                @Html.TextBoxFor(m => m.Login, new {placeholder = "Логин"})
+                @Html.ValidationMessageFor(m => m.Login)
+                @Html.PasswordFor(m => m.Password, new {placeholder = "Пароль"})
+                @Html.ValidationMessageFor(m => m.Password)
+            </div>
+
+         @*<div class="editor-label">
+                @Html.CheckBoxFor(m => m.KeepLoggedIn)
+                @Html.LabelFor(m => m.KeepLoggedIn)
+            </div>*@
+
+            <fieldset id="actions">
+                <input type="submit" id="submit" value="Войти" />
+                @if(AppConfiguration.AuthenticationMethod == AuthenticationType.Native){
+                    @Html.ActionLink("Забыли пароль?", "ChangePassword")
+                }
+                @Html.ActionLink("Зарегистрироваться", "Register")
+                <span id="buildInfo">Hudson Build: @AppConfiguration.HudsonBuildNumber</span>
+            </fieldset>
+        }
+    }
+    else
+    {
+        <h1>Выберите компанию</h1>
+    
+        //if (TempData["LoginErrors"] != null)
+        //{
+        //    <p class="errorList">@TempData["LoginErrors"].ToString()</p>
+        //}
+        
+        @Html.ValidationSummary(true)
+        var lastInstance = @TempData["LastInstance"];
+        
+        <div id="inputs" data-lastcompany="@lastInstance">
+            <div class="add-btn-holder">
+                <select id="companiesSelector">
+                    @if (companies != null)
+                    {
+                        foreach (var c in companies)
+                        {
+                            <option value="@c.InstanceId">@c.InstanceName</option>
+                        }
+                    }
+                </select>
+                <span id="addInstance" class="" title="Добавить новую компанию"></span>
+            </div>
+        </div>
+    
+        <span id="goToCompany" class="login-btn" title="Войти в компанию">Войти</span>
+        @Html.ActionLink("Выход", "LogOff", "Login", null, new { @title = "Выйти из системы", @class = "login-btn", id = "LogOut" }) 
+        
+        <script type="text/javascript">
+            $(document).ready(function () {
+                setupInteractivity();
+                setupBrowserOldObject();
+                detectBrowsers();
+            });
+            
+            $(document).on('keydown', function (e) {
+                // key for "enter"
+                if (e.keyCode == 13 && !$("#instanceCreator").length) { $("#goToCompany").click(); }
+            });
+
+            function setupInteractivity() {
+                var selectedCompanyInPropDown = "";
+                if ($("#companiesSelector option").length == 0) {
+                    $("#companiesSelector, #goToCompany").addClass('disabled');
+                    $("#companiesSelector").attr('disabled', 'disabled');
+                }
+                
+                var dataForLastInstance = $("#inputs").data("lastInstance");
+                if (dataForLastInstance > 0) {
+                    if (localStorage) {
+                        localStorage.setItem('lastVisitedInstance', dataForLastInstance);
+                        selectedCompanyInPropDown = dataForLastInstance;
+                    }
+                } else {
+                    if (localStorage && localStorage.getItem('lastVisitedInstance')) selectedCompanyInPropDown = localStorage.getItem('lastVisitedInstance');
+                }
+                $('#companiesSelector :selected').removeAttr('selected');
+                $('#companiesSelector option[value="' + selectedCompanyInPropDown + '"]').attr('selected', 'selected');
+            }
+
+            $("body").on('click', '#goToCompany',
+                function () {
+                    if ($(this).hasClass('disabled')) return;
+                    $(document).off('ajaxStop');
+                    window.ajaxCallSingleton('@Url.Action("LogonToInstance")', 'Post', { instanceId: $("#companiesSelector :selected").val() }, function (r) {
+                        window.location.href = '@Url.Action("Home", "Home")';
+                    }, null, null, window.progressOverlay.stop);
+                });
+
+            $("body").on('click', '#saveCompany',
+                function () {
+                    var instanceName = $("#InstanceName").val();
+
+                    window.ajaxCallSingleton('@Url.Action("AddInstance")', 'Post', { instanceName: instanceName }, function (r) {
+
+                            $("#inputs").data("lastInstance", r.NewId);
+                            $("#companiesSelector").prepend('<option class="" selected value="' + r.NewId + '">' + instanceName + '</option>');
+                            $("#companiesSelector, #goToCompany").removeClass('disabled').removeAttr('disabled');
+                            closeNewCompanyForm();
+                    }, null);
+                });
+
+            $("body").on('click', '#backCompany',
+                function () {
+                    closeNewCompanyForm();
+                });
+
+            $("body").on('click', '#addInstance',
+                function () {
+
+                    var markup = generateAddInstanceMarkUp();
+
+                    if ($('#login #companySelector').length == 0) $('#login').wrapInner('<div id="companySelector"/>');
+
+                    $('#login #companySelector').hide();
+                    $("#instanceCreator").remove();
+                    $('#login').append(markup);
+
+                    $('#login #instanceCreator').fadeIn('slow');
+                    $("select option:not(:first)").removeAttr("selected");
+                    if ($.browser.msie) $("input#InstanceName").placeholder();
+                    detectBrowsers();
+                });
+            
+            function closeNewCompanyForm() {
+                $("#instanceCreator").remove();
+                $('#login #companySelector').fadeIn('slow');
+                setupInteractivity();
+            }
+
+            function generateAddInstanceMarkUp() {
+            
+                var html = $('<div id="instanceCreator"><h1>Новая компания</h1>');
+                html.append('<input type="text" name="InstanceName" id="InstanceName" value="" class="placeholder" placeholder="Введите имя компании" />');
+                html.append('<span id="saveCompany" class="login-btn" title="Сохранить компанию">Сохранить</span><span id="backCompany" class="login-btn" title="Отмена">Отмена</span></div>');
+                return html;
+            }
+            
+            function detectBrowsers() {
+                window.setupBrowserOldObject();
+                $.browser.chrome = /chrome/.test(navigator.userAgent.toLowerCase());
+                if (navigator.appName == "Netscape") {
+                    var select = $("select");
+                    $.each(select, function() {
+                        if(!$(this).parent().hasClass('chrome-wrapper')) {
+                            $(this).wrap('<span class="chrome-wrapper"></span>');
+                            $(this).closest(".chrome-wrapper").append('<span class="before"></span>');
+                        }
+                    });
+                }
+                if (navigator.appName == "Netscape") {
+                    $("select").addClass('fire-fox');
+                }
+            }
+            
+        </script>
+    }
+</div>
+
+@section scripts
+{
+<script src="@Url.Content("~/Scripts/jquery.validate.min.js")" type="text/javascript"></script>
+<script src="@Url.Content("~/Scripts/jquery.validate.unobtrusive.min.js")" type="text/javascript"></script>
+<script src="@Url.Content("~/Scripts/jquery.placeholder.js")" type="text/javascript"></script>
+}

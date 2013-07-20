@@ -1,0 +1,63 @@
+﻿@using WebSite.Helpers
+@using WebSite.Models
+<!DOCTYPE html>
+<html>
+<head>
+    <title>@ViewBag.Title</title>
+    <link href="@Url.Content("~/Content/Site.css")" rel="stylesheet" type="text/css" />
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <script src="@Url.Content("~/Scripts/jquery-1.9.1.min.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Scripts/jquery-ui-1.9.2.custom.min.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Scripts/spin.min.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Scripts/GlobalSetup.js")" type="text/javascript"></script>
+    <link href="@Url.Content("~/Content/jquery-ui/jquery-ui-1.9.2.custom.css")" rel="stylesheet" type="text/css" />
+    <script src="@Url.Content("~/Content/jquery-ui/localizations/jquery.ui.datepicker-ru.js")" type="text/javascript"></script>
+    @*@Html.MetaAcceptLanguage()*@
+</head>
+<body>
+    @if (SessionHelper.IsAthorized() && SessionHelper.IsInstanceSelected())
+    {
+        <div id="pageWrapper">
+            <header>
+                <div class="head-wrapper">
+                    <div id="logindisplay">
+                        @Html.Partial("_LogOnPartial")
+                    </div>
+                    @Html.Partial("PartialMenu", new MenuPartialModel { LevelToRender = 1, MenuUlIdString = "menu" })
+                </div>
+            </header>
+            <div id="subWrapper">
+                <div class="head-wrapper">
+                    @if (ViewBag.SubMenu != null)
+                    {
+                        <text>@ViewBag.SubMenu</text>
+                    }
+                    else
+                    {
+                        @Html.Partial("PartialMenu", new MenuPartialModel { LevelToRender = 2, MenuUlIdString = "subMenu" })
+                    }
+                </div>
+            </div>
+            <div id="holder">
+                <div id="main">
+                    @RenderBody()
+                </div>
+            </div>
+        </div>
+        <footer>
+            <a href="#">Пользовательское соглашение</a>
+            <a href="#">Помощь</a>
+            <a href="#">Написать нам</a>
+            <a href="#" id="copyLink">&copy; Dio-soft</a>
+        </footer>
+    }
+    else
+    {
+        @RenderBody()
+    }
+    @RenderSection("scripts", false)
+    <script type="text/javascript">
+        var logInPageUrl = '@Url.Action("Logon", "Login")';
+    </script>
+</body>
+</html>

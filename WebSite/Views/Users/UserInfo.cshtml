@@ -1,0 +1,69 @@
+﻿@using CommonClasses
+@using CommonClasses.Models
+@model UserInfo
+@{
+    Layout = null;
+    var currentUser = Session[Constants.SESSION_USER_NAME].ToString().ToLower();
+    var readonlyAccess = new { @readonly = "readonly", @disabled = "disabled" };
+    var userInfoAccess = Equals(@currentUser, Model.Login.ToLower()) ? null : readonlyAccess;
+}
+<table class="userRoles-data">
+    <tr>
+        <td>
+            Логин
+        </td>
+        <td>
+            @Html.TextBoxFor(x => x.Login, readonlyAccess)
+        </td>
+    </tr>
+    <tr>
+        <td>
+            ФИО
+        </td>
+        <td>
+            @Html.TextBoxFor(x => x.UserFio, userInfoAccess)
+        </td>
+    </tr>
+    <tr>
+        <td>
+            Электронная почта
+        </td>
+        <td>
+            @Html.TextBoxFor(x => x.Email, userInfoAccess)
+        </td>
+    </tr>
+</table>
+<br />
+<b>Предоставленные роли:</b>
+<div class="userRoles-wrapper">
+    <table class="interactive-table" id="userRoles">
+        <tr class="pseudo-vth">
+            <th class="ps-name">
+                Название
+            </th>
+            <th class="ps-isActive">
+                Разрешена
+            </th>
+        </tr>
+        @if (Model != null && Model.UserRoles != null && Model.UserRoles.Any())
+        {
+            for (int i = 0; i < Model.UserRoles.Count; i++)
+            {
+            
+                <tr class="userRolesRow" data-roleId="@Model.UserRoles[i].RoleId" >
+                <td class="ps-name" id="Name">@Model.UserRoles[i].Name</td>
+                <td class="ps-isActive" id="isUsed">@Html.CheckBoxFor(x => Model.UserRoles[i].IsUsed, Model.UserRoles[i].IsReadOnly ? new { @disabled = "disabled" } : null)
+                </td>
+            </tr>
+            }
+        }
+        else
+        {
+            <tr class="emty-vtable-row">
+                <td colspan="2">
+                    Список ролей пуст.
+                </td>
+            </tr>
+        }
+    </table>
+</div>

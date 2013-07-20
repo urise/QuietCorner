@@ -1,0 +1,16 @@
+﻿@using ActionMailer.Net.Mvc
+@using CommonClasses.InfoClasses
+@model PasswordMailInfo
+@{
+    Layout = null;
+}
+
+<h3>Уважаемый @Model.UserName!</h3>
+
+Ваш адрес был использован при регистрации в нашей системе. 
+
+Если вы хотите подтвердить регистрацию, перейдите пожалуйста по 
+<a href="@Url.AbsoluteAction("RegisterConfirm", "Login", new { key = Model.Code })" >ссылке</a>.
+
+С уважением, 
+DIO-Soft.

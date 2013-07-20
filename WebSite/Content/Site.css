@@ -1,0 +1,1570 @@
+/*----------------------------------------------------------
+The base color for this template is #5c87b2. If you'd like
+to use a different color start by replacing all instances of
+#5c87b2 with your new color.
+----------------------------------------------------------*/
+html, body
+{
+    font: 12px Verdana, Arial, Helvetica;    
+    margin: 0;
+    background:url(images/bg.png) repeat;
+    height: 100%;
+    position: relative;
+    min-width: 1260px;
+}
+
+p {line-height: 1.6em;}
+
+ul { margin: 0;padding: 0;list-style-type: none;}
+
+header,
+footer,
+nav,
+section {
+    display: block;
+}
+
+.ui-datepicker-trigger:hover { cursor: pointer;}
+#holder { margin: 0 auto;max-width: 1280px;min-width: 960px;padding-bottom: 50px;}
+
+/* HEADINGS   
+----------------------------------------------------------*/
+h1, h2, h3, h4, h5, h6 {
+    font-size: 1.5em;
+    color: #000;
+    font-family: Verdana;
+}
+
+h1 {
+    font-size: 2em;
+    padding-bottom: 0;
+    margin-bottom: 0;
+}
+
+h2 {
+    padding: 0 0 10px 0;
+}
+
+h3 {
+    text-transform: uppercase;
+    font-weight: bold;
+    text-shadow: 1px 1px #fff;
+    font-size: 1.1em;
+    height: 20px;
+    overflow: hidden;
+    white-space: nowrap;
+    padding-bottom: 3px;
+    margin-top: 0;
+}
+
+h3:after {
+        background:url(images/h3_bg_line.png) repeat-x 0 70%; /* Can insert any pattern. Current - 1px black pixel */
+		content:"";													
+		display: inline-block;		
+		height: 20px; /* need to set height of h3 */
+		margin-left: 10px;
+		margin-right: 10px;
+		width:10000px;
+}
+
+h4 {
+    font-size: 1.1em;
+}
+
+h5, h6 {
+    font-size: 1em;
+}
+
+.dialog-filters { overflow: hidden;}
+.filter-type { color: #000;font-weight: bold;font-size: 13px;
+                padding: 5px 10px 0 0;
+               font-weight: bold;text-transform: none;padding-right: 10px;border: none;float: left;}
+
+/* ALERT POPUP   
+----------------------------------------------------------*/
+
+.capsedL { position: absolute;top: -35px;left: 20px;z-index: 5;padding: 5px;display: inline-block;
+    font-weight: bold;color: #fff;border-radius: 5px;
+           background: rgba(255,0,0, 0.8);border: 1px solid #fff;box-shadow: 0 0 3px rgba(0,0,0,0.5);}
+
+.time-error-message { color: red;text-align: center;font-weight: bold;}
+
+/* PRIMARY LAYOUT ELEMENTS   
+----------------------------------------------------------*/
+
+header {
+    position: relative;
+    margin: 0;
+    padding: 0;
+    background: #2d2d2d;
+    overflow: hidden;
+    height: 35px;
+}
+
+.head-wrapper { max-width: 1280px;min-width: 960px;margin: 0 auto;}
+.head-wrapper li { float: left;}
+.head-wrapper li.li-menu { width: 900px;}
+.head-wrapper li.li-history { width: 210px;text-align: center;}
+.head-wrapper li.li-image { width: 120px;float: right;}
+#subWrapper { height: 95px;border-bottom: 1px solid #2D2D2D;margin-bottom: 32px;position: relative;}
+#subWrapper .head-wrapper { height: 70px;background: url(images/logo.png) 5px 0 no-repeat;margin: 10px auto;padding: 0 5px;}
+
+header h1, #header h1 {
+    font-weight: bold;
+    padding: 5px 0;
+    margin: 0;
+    color: #fff;
+    border: none;
+    line-height: 2em;
+    font-size: 32px !important;
+    text-shadow: 1px 1px 2px #111;
+}
+
+#main { margin: 0 5px; }
+
+#pageWrapper { min-height: 100%;}
+
+footer, #footer { margin: -30px auto 0 auto;position: relative;max-width: 1270px;}
+footer a { font-size: 12px;color: #1F78C5;margin-right: 30px;text-decoration: none;}
+#copyLink { float: right;color: #5e5e5e;margin: 0;}
+
+/* TAB MENU   
+----------------------------------------------------------*/
+ul#menu, ul#subMenu 
+{
+    display: inline-block;
+    position: relative;
+    float: left;
+    margin-top: 7px;
+    margin-left: 5px;
+}
+ul#subMenu { margin: 30px 0 0 200px;}
+ul#subMenu li:last-child { margin-right: 0px;}
+
+ul#menu li, ul#subMenu li { float: left;margin-right: 20px;position: relative;}
+ul#subMenu > li {margin-right: 10px;padding: 5px 0;}
+ul#menu a { font-size: 1.1em; color: #a0a0a0;text-decoration: none;font-weight: bold;}
+ul#subMenu li a, .addNewUser {color: #1F78C5; margin-right: 25px; text-shadow: 1px 1px 0 white;text-decoration: none; padding: 5px;display: block;}
+ul#subMenu > li > a.category-link { padding-right: 25px;height: 16px;background: url(images/icon16_extensible.png) 100% 4px no-repeat;padding-top: 3px;padding-bottom: 3px;}
+ul#subMenu > li:hover > a.category-link , .addNewUser:hover { color: #f37021;background-position: 100% -12px;}
+ul#subMenu > li > a.category-link.active { background-position: 100% -28px;color: #000;}
+ul#subMenu li a.active {color: #000000; cursor: text; font-weight: bold; text-decoration: none;}
+ul#menu a:hover, ul#menu a.active { color: #fff;}
+
+ul#subMenu li a.disabledTab { text-decoration: none;color: #666;}
+ul#menu a.keyRestricted {color: #666;}
+ul#menu a.noAccess, #subMenu a.noAccess {color: orange !important;border: none;}
+.addNewUser {display: inline-block; margin: 30px 0 0 200px;}
+
+#subMenu ul, ul#menu ul { display: none;}
+#subMenu li:hover ul, #menu li:hover ul { display: block;}
+#subMenu li > ul {width: 210px;position: absolute;left: 5px;top: 30px;padding: 5px 0;background: #fff;border-radius: 7px;box-shadow: 0 2px 5px rgba(0,0,0,0.5);}
+#subMenu li > ul a {width: 180px;padding: 5px 15px;font-size: 12px;color: #000;}
+#subMenu li > ul a span { border-bottom: 1px dashed #000;}
+#subMenu li > ul a:hover span, #subMenu li > ul a.active span { border: none;}
+#subMenu li > ul > li { }
+#subMenu li > ul > li:hover a { color: #000;}
+
+#subMenu li.link-26 a, #subMenu li.link-27 a, #subMenu li.link-28 a, #subMenu li.link-29 a, #subMenu li.link-30 a { margin-right: 5px;}
+
+#changeHistory { margin: 30px 0 0 0;float: none;}
+#changeHistory.active { margin: 0;background-color: #f7eea5;}
+#changeHistory.active:hover{ color: #6D6D6D;background-position: 7px 0;}
+
+#historySwitch { width: 100%;overflow: hidden;margin-top: 10px;margin-left: 3px;}
+#historySwitch > div { margin: 0 5px;display: inline-block;float: left;}
+#historySwitch span { display: inline-block;width: 28px;height: 28px;background: url(images/arrow_lr.png) 0 0 no-repeat;border: 1px solid #A0A0A0;float: left;}
+#historySwitch span:hover {background-position: 0 100%;cursor: pointer;} 
+#historySwitch span.next_arr { background-position: 100% 0;}
+#historySwitch span.next_arr:hover { background-position: 100% 100%;}
+#historySwitch span.disabled { background: #fff;}
+#historySwitch span.disabled:hover { cursor: default;}
+
+/* FORM LAYOUT ELEMENTS   
+----------------------------------------------------------*/
+
+fieldset {
+    border: 1px solid #ddd;
+    padding: 0 1.4em 1.4em 1.4em;
+    margin: 0 0 1.5em 0;
+}
+
+legend {
+    font-size: 1.2em;
+    font-weight: bold;
+}
+
+textarea {
+    min-height: 75px;
+    resize: none;
+}
+
+select {
+    border: 1px solid #a0a0a0;
+    padding: 2px;
+    font-size: 1.2em;
+    color: #444;   
+}
+
+.select-wrapper {
+   width: 175px;
+   height: 28px;
+   overflow: hidden;
+   background: url(images/icon28_select.png) no-repeat 0 0 #fff;
+   border: 1px solid #A0A0A0;
+   display: inline-block;
+   position: relative;
+   float: left;
+    margin: 0 10px 1px 0;
+    box-shadow: 0 1px 0 white;
+}
+
+.select-wrapper:before {content: "";position: absolute;top: 0;right: 0;width: 5px;height: 28px;background: #fff;z-index: 1;}
+.select-wrapper.disabled:before, .select-wrapper.disabled  {background-color: #eee;}
+.select-wrapper.disabled.changed-field:before, .select-wrapper.disabled.changed-field  {background-color: #A8DAA2;}
+.select-wrapper.ie-case { margin-right: 4px;}
+
+.select-wrapper.small { width: 65px;}
+.select-wrapper.small select {width: 90px;}
+
+.select-wrapper.midium {width:110px;}
+.select-wrapper.midium select { width: 135px;}
+
+.select-wrapper.midium-1 {width:130px;}
+.select-wrapper.midium-1 select { width: 155px;}
+
+.select-wrapper.midium-2 {width:150px;}
+.select-wrapper.midium-2 select { width: 180px;}
+
+.select-wrapper.large {width:180px;}
+.select-wrapper.large select { width: 205px;}
+
+.select-wrapper.large-1 {width:295px;}
+.select-wrapper.large-1 select { width: 320px;}
+
+.select-wrapper:hover { background-position: 0 100%;}
+.select-wrapper.disabled:hover { background-position: 0 0;}
+
+.select-wrapper select {
+   background: transparent;
+    background-color: rgba(0, 0, 0, 0);
+   width: 200px;
+   padding: 5px;
+   font-size: 14px;
+   line-height: 1;
+   border: 0;
+   border-radius: 0;
+   height: 28px;
+   -webkit-appearance: none;
+    padding-left: 28px;
+}
+
+.disabledOption .select-wrapper select, .select-wrapper select:disabled { color: #888;}
+.disabledOption .select-wrapper,
+.disabledOption .select-wrapper:before, .select-wrapper.disabled:before { background-color: #eee;}
+.disabledOption .select-wrapper:hover, .select-wrapper.disabled:hover { background-position: 0 0;}
+
+select option[disabled] {
+    display: none;
+}
+
+.interactive-table .select-wrapper { margin: 0;}
+.interactive-table .changed-field td, #listTable .interactive-table .changed-field:nth-child(2n) td,
+img.changed-field { background-color: #A8DAA2;border: 1px solid #317f1f; }
+label.changed-field { padding: 3px;background-color: #A8DAA2;}
+.interactive-table .to-right { text-align: right;}
+
+.afterDropDownContainer { padding: 7px 0 0 0;display: inline;float: left;white-space: nowrap;}
+.afterDropDownContainer strong { }
+
+input[type="submit"],
+input[type="button"] {
+    height: 30px;
+    font-size: 1.1em;
+    font-weight: bold;
+    color: #6D6D6D;
+    padding: 4px 6px 7px 30px;
+}
+
+input[type="text"], 
+input[type="password"], textarea {
+    border: 1px solid #a0a0a0;
+    font-size: 1.1em;
+    height: 26px;
+    margin-right: 10px;
+    font-family: Verdana, Arial, sans-serif;
+    color: #444;
+    width: 200px;
+    box-shadow: 0 1px 0 white;
+}
+
+input[type="text"]:disabled { color: #777777;background-color: rgb(238, 238, 238);}
+input[type="text"]:disabled.changed-field { background-color: #a8daa2;}
+
+#dialog input[type="text"], #dialog input[type="password"] { width: 90px;}
+#dialog table td.newAmount, #dialog table td.startDate { text-align: center;width: 170px;}
+#dialog #salaryAmendTable input { width: 160px;text-align: right;}
+
+#generateActSingle #customNumber { width: 50px;text-align: right;}
+
+#deletedEmployeeRemark
+{
+    display: inline-block;
+    padding: 5px 15px;
+    height: 15px;
+    position: absolute;
+    bottom: -27px;
+    left: 570px;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    border-bottom: 1px solid #000;
+    border-left: 1px solid #000;
+    border-right: 1px solid #000;
+    z-index: 300;
+    background-color: #F7EEA5;
+}
+
+/* TABLE
+----------------------------------------------------------*/
+
+table 
+{
+    border-collapse: collapse;
+    width: 100%;
+}
+
+.table-wrapper.positions { width: auto;}
+.table-wrapper.position-levels, .table-wrapper.roles { width: 580px;}
+.table-wrapper.currencyClasses { width: 950px;}
+.table-wrapper.report-table { width: auto;overflow: auto;}
+.table-wrapper.report-table td {border-top: solid 1px #afafaf;}
+
+table td {
+    padding: 5px 5px 5px 10px;
+    height: 24px;
+    border-right: dashed 1px #afafaf;
+    border-bottom: solid 1px #afafaf;
+    background: #fff;
+}
+
+table tr.odd { background: #fff;}
+table tr:nth-child(2n) td { background: #f5f5f5;}
+li > table tr:nth-child(2n) td,
+.company-data table tr:nth-child(2n) td { background: none;}
+
+table#payrollContainer tr td {background: none;}
+table#singlePayrollGeneralData td { background: none;}
+
+table.no-header td { border: none;background: none;}
+
+table td.errorField { padding: 0;}
+
+table th {
+    background: none repeat scroll 0 0 #B1B1B1;
+    border-right: 1px solid #848484;
+    box-shadow: 0 1px 1px white;
+    color: #FFFFFF;
+    font-weight: bold;
+    min-height: 15px;
+    padding: 10px 5px 10px 10px;
+    text-shadow: 1px 1px #666666;
+    width: auto;
+    text-align: left;
+}
+table th:last-child, table td:last-child { border-right: none;}
+table tr:last-child td { border-bottom: none;}
+
+
+.tAmount { width: 110px;}
+.tName { width: 410px;}
+.tAmount.positive { text-align: right;color: #317f1f;}
+.tAmount.negative { text-align: right;color: red;}
+
+table th.digital-presentation, table td.digital-presentation { text-align: right;padding: 5px 10px 5px 5px;}
+table td.digital-presentation input {text-align: right;}
+
+#countDate.in-popup { width: 100px;}
+
+.footer-row td { font-weight: bold;}
+
+
+/* MISC  
+----------------------------------------------------------*/
+.clear {
+    clear: both;
+}
+
+.error {
+    color: Red;
+}
+
+nav, 
+#menucontainer {
+    margin-top: 40px;
+}
+
+div#title {
+    display: block;
+    float: left;
+    text-align: left;
+}
+
+#logindisplay {
+    font-size: 1.1em;
+    display: inline-block;
+    float: right;
+    text-align: right;
+    color: #fff;
+    /*margin-top: 7px;*/
+    padding-bottom: 5px;
+}
+
+/*#logindisplay a 
+{
+    border-bottom: 1px dashed #F37021;
+    color: #F37021;
+    font-weight: bold;
+    padding: 0;
+    text-decoration: none;
+    padding: 0 3px 1px 3px;
+}*/
+
+
+/* Styles for validation helpers
+-----------------------------------------------------------*/
+.field-validation-error {
+    color: #ff0000;
+    display: block;
+    list-style-type: disc;
+}
+
+.field-validation-valid {
+    display: none;
+}
+
+.input-validation-error {
+    border: 1px solid #ff0000;
+    background-color: #ffeeee;
+}
+
+.validation-summary-errors {
+    font-weight: bold;
+    color: #ff0000;
+    padding: 5px;    
+}
+
+.validation-summary-valid {
+    display: none;
+}
+
+/* Styles for editor and display helpers
+----------------------------------------------------------*/
+.display-label, 
+.editor-label {
+    margin: 1em 0 0 0;
+}
+
+.display-field, 
+.editor-field {
+    margin: 0.5em 0 0 0;
+}
+
+.text-box {
+    width: 30em;
+}
+
+.text-box.multi-line {
+    height: 6.5em;
+}
+
+.tri-state {
+    width: 6em;
+}
+
+/* Styles for Payroll section
+----------------------------------------------------------*/
+.new-line-place span {display: inline-block;border-right: 1px solid #E8EEF4;padding: 5px;}
+.new-line-place span.result_preview { border: none;}
+
+
+td.amount input { width: 40px;text-align: right;}
+#payrollContainer td.line-type, td.type {min-width: 300px; width: 300px;}
+td.type select { width: 290px;}
+#payrollContainer td.line-worked, td.worked {width: 100px;min-width: 100px;}
+td.worked input { width: 40px;}
+td.li-withname { width: 235px;font-weight: bold;padding: 0;border-bottom: #afafaf solid 1px;}
+td.li-withname > span {padding: 5px 30px 5px 5px;display: block;text-align: left;position: relative;}
+td.li-withdata { padding: 0;border-bottom: #afafaf solid 1px;border-right: none;}
+td.actions {min-width: 115px; width: 115px;}
+td.amount {min-width: 125px;width: 125px;padding: 5px 10px 5px 5px;text-align: right;}
+td.li-withdata table tr:last-child td { border-bottom: none;}
+td.li-withdata table tr.error-row td { border-top: 1px dashed #afafaf;}
+
+td.li-withdata .temp-hidden { display: none !important;}
+td.li-withdata .expandable-line.active td { border-bottom: none;}
+
+td.li-withdata .expandable-button { background: none;border: 1px solid #6d6d6d;float: right;padding:2px 5px;width: 90px;text-align: center;}
+td.li-withdata .expandable-button:hover { cursor: pointer;background: #eee;}
+.employee-in-process td.li-withdata .expandable-button, 
+.employee-in-process td.li-withdata .expandable-button:hover { background: #ccc;color: #666;border: 1px solid #ccc;cursor: default;}
+
+
+table tr.new-line-place td { padding: 0;}
+table tr.new-line-place td td { padding: 5px 5px 5px 10px;}
+
+.row-in-progress td.amount input, .row-in-progress td.amount span,
+.row-in-progress td.worked input { display: none;}
+.row-in-progress { border-top: 1px solid #AFAFAF;}
+
+.li-withdata tr.under-edit { display: none;}
+
+#payrollContainer > tbody > tr.employee-in-process { background: #eff6f8;}
+
+.actions .save-line, .actions .undo-line,
+td.actions span, td.actions a, a.payroll-addline, span.payroll-addline,
+.delete-line { display: inline-block;width: 16px;height: 16px;text-indent: -400px;overflow: hidden;
+                                                                         margin: 10px 8px 0 8px;text-decoration: none;border: none;padding: 0;
+                                                                         background: url(images/icon16_plus.png) 0 0 no-repeat;}
+a.payroll-addline, span.payroll-addline { position: absolute;top: 0;right: 0;}
+                                                                         
+span.payroll-addline, td.actions span, .li-withdata.inactive a, #listTable .ex-action.inactive span,
+td.actions .save-line:disabled, td.li-withdata.inactive .edit-line:hover, td.li-withdata.inactive .delete-line:hover,
+td.li-withdata.inactive .generate-calculation:hover, 
+td.actions span#sbtNewRate.disabled, td.actions span#sbtNewRate.disabled:hover { background-position: 0 100%;cursor: default;}
+
+td.actions span#sbtNewRate, td.actions span#clsNewRate {background-position: 0 0;cursor: pointer;margin: 10px 8px 0;}
+td.actions span#sbtNewRate:hover, td.actions span#clsNewRate:hover {background-position: 0 -16px;}
+
+a.payroll-addline:hover, td.actions a:hover, td.actions input:hover,
+.delete-line:hover { background-position: 0 -16px;cursor: pointer;}
+td.actions .generate-calculation {background-image: url(images/icon16_bankpayroll.png);}
+td.actions a.generate-act, td.actions span.generate-act { background-image: url(images/icon16_doc.png);}
+td.actions a.view-act, td.actions span.view-act,
+td.actions a.add-line, td.actions span.add-line { background-image: url(images/icon16_pdf.png);}
+td.actions a.edit-line, td.actions span.edit-line { background-image: url(images/icon16_edit.png);}
+td.actions a.delete-act, td.actions span.delete-act,
+td.actions a.delete-line, td.actions span.delete-line,
+.delete-line, td.actions .delete-calculation { background-image: url(images/icon16_trash.png);text-indent: 200px;}
+td.actions .save-line, td.actions span.save-line { background-image: url(images/icon16_save.png);}
+td.actions .undo-line, td.actions span.undo-line { background-image: url(images/icon16_undo.png);}
+td.actions a.noAccess, a.payroll-addline.noAccess, a.payroll-addline.noAccess:hover, td.actions a.noAccess:hover, .delete-line.noAccess, .delete-line.noAccess:hover,
+span.new.noAccess, span.edit.noAccess, span.delete.noAccess, span.openPeriod.noAccess, span.closePeriod.noAccess, span.copy.noAccess {background-position: 0 100%;cursor: default;}
+
+
+table td.act-name, .prBankPayroll td:last-child, .prCalculation td:last-child {border-right: none;}
+table td.line-comment { border-right: none;}
+table td.line-comment span {background: url(images/icon_comment.png) 5px 50% no-repeat;display: inline-block; padding-left: 30px;word-break: break-all;}
+
+#payrollContainer tr:first-child th:first-child {box-shadow: 0 1px 1px white;}
+#payrollContainer tr:first-child th:last-child {border-right: none;}
+#payrollContainer #payrollsHeader { border: none;}
+#payrollContainer th,
+#employeesTable th { width: auto;padding: 10px;font-weight: bold;color: #fff;text-shadow: 1px 1px #666;min-height: 15px;border-right: solid 1px #848484;background: #b1b1b1;box-shadow: 0 1px 1px white;}
+#payrollContainer th.phead-name { width: 235px;padding: 0;overflow: hidden;}
+#payrollContainer th.phead-name span {padding: 10px;display: block;}
+#payrollContainer th.phead-action { min-width: 110px;width: 110px;}
+#payrollContainer th.phead-amount { min-width: 120px;width: 120px;text-align: right;}
+#payrollContainer th.phead-type {min-width: 295px; width: 295px;}
+#payrollContainer th.phead-worked { width: 95px;}
+
+
+#payrollFilters ul, #employeeFilters ul {  padding: 0;margin-bottom: 20px;overflow: hidden;}
+#employeeFilters {overflow: hidden;}
+#payrollFilters ul li, #employeeFilters ul li { width: 25%;float: left;margin-right: 15px;}
+#payrollFilters ul li { width: auto;}
+#payrollFilters ul li#periodSelector { width: 375px;}
+#payrollFilters ul li#groupActions { width: 860px;margin-right: 0;text-align: justify;float: right;}
+
+#searchEmployee input { float: left;}
+#searchEmployee #applyFilters { background-image: url(images/icon16_zoom.png);}
+#searchEmployee #clearButton { background-image: url(images/icon16_trashBW.png);}
+#groupOprtns #submitGroupForm { background-image: url(images/icon16_apply.png);}
+#btnSubmit, #btnSave {background-image: url(images/icon16_apply.png);background-position: 10px 0;margin-top: 20px;}
+#btnSubmit:hover, #btnSave:hover {background-position: 10px 100%;}
+#periodBlockBtns input#btnClosePeriod {background-image: url(images/icon16_close.png);}
+
+#employeeFilters ul li#searchEmployee { width: 550px;margin-right: 20px;} 
+#employeeFilters ul li#groupOprtns { width: 680px;margin-right: 0;float: right;}
+#periodBlockBtns input.disabledBtn, #periodBlockBtns input.disabledBtn:hover { color: #eee; background: #ccc url(images/icon16_apply_gray.png) 10px 50% no-repeat; }
+#searchEmployee input[type=submit] {background-image: url(images/icon16_zoom.png);}
+
+td.operation-type-error-td {border-bottom: dashed 1px #afafaf;color: red;text-align: center;}
+
+
+.amount.positive { color: #317f1f;}
+.amount.negative { color: red;}
+.yellow-wrapper { background: #ffff96;}
+
+
+div#letterGradation { float:none;text-align: center;margin-bottom:20px;background: #fff;box-shadow: 0 0 3px rgba(0, 0, 0, 0.5);position: relative;padding-left: 20px;}
+#letterGradation a, #letterGradation span { display: inline-block;padding: 6px 11px 6px 12px;color: #1f78c5;font-weight: bold;text-decoration: none;}
+#letterGradation a:hover { color: #f37021;}
+#letterGradation a.active { color: #000;background: #eee;}
+#letterGradation span { color: #888;}
+#letterGradation:before, #letterGradation:after {content: "";position: absolute;top: -4px;width: 45px;height: 35px;background: url(images/alp_ukr.png) 0 0 no-repeat;z-index: 1;}
+#letterGradation:before {left: 0px;}
+#letterGradation:after {right: 0px; width: 12px;background-position: 101% 0;}
+
+
+#payrollFilters #filterSet li { float: left;width: 145px;}
+.filter-name { color: #777;font-size: 11px;display: block;}
+.filter-name.filte-action-btns { text-indent: -200px;overflow: hidden;}
+
+#pagingSection { background: none;font-size: 11px;}
+#pagingSection a { color: #238ce6;padding: 0 7px;}
+#pagingSection span {padding: 0 7px;}
+#pagingSection a.active, #employeesTable #pagingSection a.active { font-weight: bold;color: #000;text-decoration: none;}
+#pagingSection td { border: none;background: #fff;padding: 10px;}
+#pagingSection .items-per-page { text-align: right;border-bottom-right-radius: 7px;}
+#pagingSection .selected-page { border-bottom-left-radius: 7px;}
+#pagingSection .selected-page a { font-size: 15px;text-decoration: none;color: #238ce6;}
+#pagingSection .selected-page span { font-size: 15px;color: #666;}
+#pagingSection .selected-page input[type="text"] { text-align: center;border: 1px solid #a0a0a0;width: 30px;height: 17px;padding: 0;font-family: Verdana;font-size: 11px;}
+
+div.selected-page, div.items-per-page { width: 49%;float: left;text-align: left;}
+div.items-per-page { text-align: right;}
+#employeesTable #pagingSection a { color: #238ce6;}
+
+.bw-btn-long.report-file, .bw-btn-long.report-submit  { float: right;}
+.bw-btn-long.report-file { margin-right: 0;}
+
+/* Styles for individ data page
+----------------------------------------------------------*/
+.individ-data {overflow: hidden;}
+.individ-data li { float: left;margin-right: 20px;}
+li.persom-li-1 { width: 240px;}
+li.persom-li-2, li.persom-li-3 { width: 500px;}
+li.persom-li-3 { width: 470px;margin-right: 0;float: right;}
+
+
+.person_img { background: none repeat scroll 0 0 #FFFFFF; border: 1px solid #A0A0A0; padding: 2px; width: 226px}
+.individ-data h2,
+.individ-payroll h2 {font-size: 12px; margin: 0 0 22px; padding: 0; text-shadow: 1px 1px 0 white;text-transform: uppercase;}
+.field_description { color: #777777; font-size: 10px; }
+
+.individ-data table { margin-left: 45px;}
+.individ-data .image-table { margin-left: 0;}
+.individ-data table td, .transactionType-data table td, userRoles-data td,
+.individ-payroll table td, .company-data table td { border: none;}
+.individ-data table tr td:first-child,
+.individ-payroll table tr td:first-child, 
+.transactionType-data table tr td:first-child,
+.userRoles-data tr td:first-child,
+.company-data table tr td:first-child { font-weight: bold;text-align: right;padding-right:10px;}
+.individ-payroll table tr td:first-child { width: 128px;}
+.company-data table tr td:first-child,
+.transactionType-data tr td:first-child { width: 256px;}
+.userRoles-data tr td:first-child  { width: 180px;}
+
+.transactionType-data tr td input:first-child { margin-left: 0;}
+.transactionType-data label {display: inline-block; width: 110px;}
+
+.fire-date-field td { vertical-align: top;padding-top: 15px;}
+
+.individ-payroll { margin-top: 30px;overflow: hidden;}
+.individ-payroll li { float: left;width: 50%;}
+.individ-payroll .default-selector {display: inline-block; font-weight: bold;margin-top: 20px;}
+.individ-payroll .default-selector:hover { cursor: pointer;}
+
+.individ-data input[type="text"], .individ-data input[type="password"], .individ-data input[type="file"], .form select,
+.transactionType-data input[type="text"], 
+.individ-payroll input[type="text"], .company-data input[type="text"], .company-data input[type="password"],
+.company-data input[type="file"], .company-data textarea, .transactionType-data textarea {
+    border: 1px solid #A0A0A0;
+    box-shadow: 0 1px 0 white;
+    color: #2D2D2D;
+    height: 25px;
+    margin-right: 8px;
+    padding: 2px;
+    width: 245px;
+}
+
+.company-data textarea,.transactionType-data textarea {
+    resize: none;
+}
+
+
+#ForeignPassportSeries, input[type="text"].foreign-passport-series { width: 30px;}
+#ForeignPassportNumber, input[type="text"].foreign-passport-number { width: 175px;}
+input[type="text"].contract-number { width: 120px;}
+input[type="text"].contract-date { width: 80px;margin-left: 7px;}
+#IsFired { margin-left: 0;}
+#IsFired { margin-bottom: 10px;}
+
+.clickableHeader > label, 
+.family-information > label {
+    display: inline-block;
+}
+.family-information .changed-field { padding: 3px; background-color: #A8DAA2;} 
+
+#MakeActs, #IsMarried {
+    width: 13px;
+    height: 13px;
+    padding: 0;
+    margin:0 7px 0 0;
+    vertical-align: bottom;
+    position: relative;
+    top: -1px;
+    left: 0;
+    *overflow: hidden;
+}
+
+#bnSaveAndGo, #bnSave, #sbtNewRate, #sbtChargesAndRetentions, #sbtSalaryAmend { background-image: url(images/icon16_saveBW.png);font-size: 1em;font-family: Verdana;margin-bottom: 10px;margin-top: 20px;}
+#bnGo,#clsNewRate, #clsChargesAndRetentions, #clsSalaryAmend  { background-image: url(images/icon16_undoBW.png);font-size: 1em;font-family: Verdana;margin-bottom: 10px;margin-top: 20px;}
+#bnSaveAndGo {background-image: url(images/icon16_ok.png)}
+
+.dynamicRow .editableRow #sbtNewRate { background-image: url(images/icon16_apply_orange.png);}
+#bnSaveAndGo:hover, #bnSave:hover, #sbtNewRate:hover, #clsNewRate:hover { cursor: pointer; }
+
+#payrollContainer #sbtNewRate {background-image: url(images/icon16_save.png);}
+#payrollContainer #clsNewRate {background-image: url(images/icon16_undo.png);}
+
+#UploadNewImage.bw-btn-long { background-image: url(images/icon16_browse.png);margin-top: 10px;position: relative;overflow: hidden;}
+#DeleteImage.bw-btn-long { background-image: url(images/icon16_trashBW.png);margin-top: 10px;}
+#UploadNewImage.bw-btn-long > input { position: absolute;top: 0;left: -20px;height: 26px;opacity: 0; -moz-opacity: 0;filter: progid:DXImageTransform.Microsoft.Alpha(opacity=0);width: 120px;}
+
+
+/*************** individual data ***************/
+
+ul#individPayrollTables {overflow: hidden;}
+ul#individPayrollTables li { float: left;display: inline-block;}
+.individPayrollTables-salaries{ width: 430px;}
+.individPayrollTables-positions {width: auto;}
+
+td.ps-primary { text-align: center;}
+
+/**********************  ************************/
+
+.ex-dynamic-row > td, .dynamicRow > td { padding: 0;height: 24px;}
+
+#listTable th { background: #b1b1b1;color: #fff;text-shadow: 1px 1px #848484;border-right: 1px solid #848484;box-shadow: 0 1px 1px white;}
+#listTable .inactive td { background-color: #F5F5F5; color: #888888;}
+
+.inactive .editRate, .inactive .editRate:hover, 
+.inactive .deleteRate, .inactive .deleteRate:hover { background-position: 0 100%;cursor: default;}
+
+.trInEditMode { display: none;}
+#listTable th:last-child, #listTable td:last-child, #employeesTable td:last-child,
+#employeesTable th:last-child { border-right: none;}
+#employeesTable td:last-child { width: 30px;}
+
+
+.editableRow span#closeAjaxForm, .ex-action input#closeExForm { background-image: url(images/icon16_undo.png);padding: 0;}
+#listTable th.rateRemote a:hover, #listTable .newRate:hover, #listTable .ex-action input:hover,
+#listTable .ex-action span:hover, #kidsTable .editableRow span:hover, .undo-button-iconed:hover, .add-button-iconed:hover { background-position: 0 -16px;cursor: pointer;}
+#listTable th.rateRemote a.active { background-position: 0 -32px;}
+#listTable th.rateRemote a.inactive,
+#listTable th.rateRemote a.inactive:hover { background-position: 0 -32px;}
+.editableRow span:hover { background-position: 0 -16px;}
+#listTable th.rateRemote a.newRate, #listTable .newRate, .add-new-item { background-image: url(images/icon16_pluswhite.png);}
+.editableRow span.editRate, #listTable .ex-action span.editRate,
+#kidsTable .editableRow span.edit-kid-line, .editRate { background-image: url(images/icon16_edit.png);}
+.editableRow span.deleteRate, #listTable .ex-action span.deleteRate, 
+#kidsTable .editableRow span.delete-kid-line, .deleteRate { background-image: url(images/icon16_trash.png);}
+.closedPeriod { color: #888;}
+.activePeriod { font-weight: bold;}
+.dimmed td, .currencyClasses-table tr.inactive td { background-color: #f5f5f5;color: #888;}
+.editable-tr.dimmed .iconed-button,
+.editable-tr.dimmed .iconed-button:hover { background-position: 0 100%;cursor: default;}
+
+#listTable tr:nth-child(even) td,
+#employeesTable tr:nth-child(even), 
+#crTable tr:nth-child(even) td, 
+#payrollContainer > tbody > tr:nth-child(even) { background-color: #f5f5f5;}
+
+#saWrapper { margin: 20px 0;}
+
+#crTable .eValue, #crTable .eTime { width: 80px;text-align: right;}
+#crTable .eTime { width: 120px;}
+#crTable .eComment { width: 200px;}
+#crTable .eComment input { width: 180px;text-align: left;}
+#crTable .result_preview, #crTable .time-unit, #crTable .eValue input, #crTable .eTime input, #crTable .e-comment { display: none;}
+#crTable tr td:last-child { width: 25px;}
+#crTable tr {border-bottom: 1px solid #AFAFAF;}
+#crTable tr:last-child {border-bottom: none;}
+#crTable tr td {border-right: 1px dashed #AFAFAF;}
+#crTable tr td:last-child { border-right: 0;}
+table tr.temp-errored td { background-color: #f8e6e6;}
+table .temp-errored.error-text td { text-align: center;color: red;background-color: #faf3f3;}
+
+#listTable tr:last-child td,
+#listTable tr.visible td,
+#employeesTable tr:last-child td { border-bottom: none;}
+#listTable tr.visible.showBorder td { border-bottom: 1px solid #afafaf;}
+#employeesTable tr {background-color: #fff;}
+#etWrapper, #saWrapper, #ipWrapper {border-radius: 7px;overflow: hidden;margin-bottom: 10px;}
+#ipWrapper { border: 1px solid #b1b1b1;}
+#employeesTable a { text-decoration: none;color: #000;}
+#employeesTable a:hover { color: #f37021;}
+table#employeesTable td:first-child,
+table#employeesTable th:first-child { width: 30px;text-align: center;padding-left: 10px;padding-right: 5px;}
+
+.dynamicRow {border-bottom:1px solid #afafaf; border-top:1px solid #afafaf;}
+.dynamicRow.overlineRow {border: none;}
+.dynamicRow input[type=text], .prototypeRow input[type=text], .add-edit-line input[type=text] { width: 100px;}     
+.dynamicRow td { padding: 0;border: none;}
+.dynamicRow table tr.infoRow td { padding: 5px;border-right: 1px dashed #AFAFAF;}
+.dynamicRow table tr.infoRow td:last-child { border: none;}
+#listTable table .dynamicRow td { border-bottom: none;}
+
+#listTable table .dynamicRow td.exPos { max-width: 208px;padding: 3px 0 3px 0;}
+#listTable table .dynamicRow td.exPos > div { margin-left: 10px;}
+#listTable table .dynamicRow td.exVal { max-width: 123px;padding: 0 7px 0 0;}
+#listTable table .dynamicRow td.exDate { max-width: 128px;padding: 0 0 0 10px;}
+
+.currencyClasses-table input[type=text] {  width: 100% }
+.currencyClasses-table input[type=checkbox] { margin-left: -1px; }
+.currencyClasses-table td { height: 30px;}
+.currencyClasses-table td.ps-cashless, .currencyClasses-table td.ps-is-active,.currencyClasses-table td.ps-currency { width: 100px; text-align: center; }
+.currencyClasses-table td.ps-code { width: 165px;}
+
+.dynamicRow .errorList, .errorList, .errors-message-td { text-align: center;color: red;margin: 5px 0;}
+.errorList td {border-right: none;}
+.dynamicRow .errorList li {padding: 5px;}
+.successList { text-align: center;color: green;margin: 5px 0;}
+.successList li { text-align: left;color: blue;margin: 5px 0; font-weight: bold;}
+
+.ex-dynamic-row .ex-date input,
+.ex-dynamic-row .ex-val input { width: 80px;}
+.ex-date { width: 100px;}
+.ex-val { width: 220px;}
+
+.exchangeTable .active { font-weight: bold;}
+.ExRates .active { font-weight: bold;}
+.prototypeRow { display: none;}
+
+.errors-row .validation-summary-errors {text-align: center; border-bottom: 1px solid #afafaf;}
+.error_list .field-validation-error, .errors-message-td { padding: 5px;text-align: center; border-bottom: 1px solid #afafaf;}
+#listTable table td.errors-row { border-bottom: 0;padding: 0;}
+
+.exPos { width: 210px;max-width: 210px;}  
+.exVal, .exDate { width: 130px;max-width: 130px;text-align: right;/*padding: 5px 10px 5px 5px;*/}
+.exVal input, .exDate input { margin: 0;text-align: right;}
+.exVal input.salary-nominal { width: 60px;}
+#listTable tr.editable-tr .exPos { max-width: 180px;width: 180px;padding-right: 30px;} 
+#listTable tr.future-salary .exPos {background-image: url(images/icon_future.png);background-position: 95% 50%; background-repeat: no-repeat; }  
+
+td.itemString, td.itemDate, th.itemString, th.itemDate { width: 200px !important;}
+td.itemBool, th.itemBool { width: 80px;}  
+th.kidRemote, td.kidRemote, th.periodRemote, td.periodRemote {width: 80px;}
+.itemString input, .itemDate input{ width: 150px;}
+.infoRow td.itemString, .infoRow td.itemDate{ width:190px !important;padding-left: 2px;text-align: center;}
+.infoRow td.itemBool { width: 80px !important;padding-left: 2px;text-align: center;}  
+
+
+.periods .active { font-weight: bold;}
+.periods td { margin: 0 !important;overflow: hidden;}
+.periods td.ps-name, .periods td.ps-date-from,
+.periods td.ps-date-to, .periods td.ps-days,
+.periods th.ps-name, .periods th.ps-date-from,
+.periods th.ps-date-to, .periods th.ps-days { width: 200px;}
+.periods  input { width: 97%; height: 100%; margin: 0;}
+.periods .editor-field { margin: 0;}
+
+
+.table-wrapper { border-radius: 7px;width: 720px;overflow: hidden; }
+.table-wrapper.salaryTable {width: 400px;}
+.table-wrapper.exchangeTable {width: 400px;}
+.table-wrapper.positionTable { width: 820px;}
+.table-wrapper.reports { width: auto;overflow-x: auto;}
+.table-wrapper.reports td {border-top: solid 1px #afafaf;}
+.table-wrapper.reports th { text-align: center;}
+
+#filterSet.reports, #report-filterSet.reports { overflow: hidden;margin-bottom: 20px;}
+#filterSet.reports div span { float: left;font-weight: bold;margin:7px 10px 0 0;}
+#filterSet div.select-wrapper.midium-2 { width: 150px;}
+#report-filterSet.reports div span { float: left;font-weight: bold;margin:7px 5px 0 0;}
+#report-filterSet div.select-wrapper.midium-2 { width: 160px;}
+
+.salaryTable tr.info-row.future .exVal { background-image: url(images/icon_future.png);background-position: 10px 50%;background-repeat: no-repeat;}
+
+.individ-payroll { position: relative;}
+
+.individ-payroll.inactive h2,
+.individ-payroll.inactive table,
+.individ-payroll.inactive table tr td:first-child,
+.individ-payroll.inactive #DutyList,
+.individ-payroll.inactive .default-selector { color: #888;}
+.individ-payroll.inactive input[type="text"] {border: 1px solid #999999;background: #eee;color: #888;}
+.duty-list, .fin-data { position: relative;}
+.inactiveFieldsCover, .duty-list .inactiveFieldsCover { position: absolute;top: 20px;left: 0;width: 100%;height: 260px;z-index: 1;background: rgba(0, 0, 0, 0);}
+.duty-list .inactiveFieldsCover { top: 0;left: 0;height: 100%;}
+
+.individ-payroll.inactive table tr.fire-date-field td:first-child { color: #000;}
+.individ-payroll.inactive .fire-date-field input[type="text"] {border: 1px solid #A0A0A0;
+    box-shadow: 0 1px 0 white;
+    color: #2D2D2D;
+    height: 25px;
+    margin-right: 8px;
+    padding: 2px;
+    width: 245px;
+    background: #fff;}
+
+.clickableHeader label:hover {cursor: pointer;color: #f37021;}  
+
+
+.name-field { margin-bottom: 15px;}
+.individ-extradata {overflow: hidden;margin-bottom: 15px;}
+.individ-extradata li { float: left;overflow: hidden;}
+.family-information { margin: 0 0 20px 0;}
+
+table.car-information td:first-child { text-align: right;font-weight: bold;padding-right: 20px;}
+
+.extradata-family { width: 800px;}
+.individ-extradata li.extradata-car { width: 440px;float: right;}
+.extradata-family > h3 { margin-bottom: 30px;}
+
+.radio-btn-set  input { margin-right: 10px;margin-left: 0;}
+.radio-btn-set  input.second-option { margin-left: 20px;}
+.radio-btn-set.changed-field {background-color: #A8DAA2;}
+
+#kidsTable { overflow: hidden;border-radius: 7px;}
+#kidsTable td, #kidsTable th { width: 120px; word-break: break-all;}
+#kidsTable .td-actions, #kidsTable .editableRow { width: 70px;}
+#kidsTable .td-sex { width: 145px;}
+
+.td-actions span { margin: 0 10px 0 0;}
+.td-actions span:hover { background-position: 0 -16px;cursor: pointer;}
+
+#kidsTable input[type="text"] { width: 100px;margin-right: 0;}
+.emty-table-row td:last-child, .emty-table-row, .emty-vtable-row { text-align: center;border-bottom: none;}
+.add-new-item { margin: 0;text-indent: 400px;}
+#kidsTable .td-sex > div { margin: 0;}
+
+
+
+#kidsTable .inactive td {background-color: #F5F5F5;color: #888888;}
+#kidsTable .inactive span { background-position: 0 -32px;cursor: default;}
+
+#employeeSmallImage { display: none;max-height: 66px;float: right;border: 1px #a0a0a0 solid;padding: 1px;}
+
+/* Styles for editor and display helpers
+----------------------------------------------------------*/
+.editableRow span { cursor: pointer;text-decoration: underline;}
+.editableRow span:hover { cursor: pointer;text-decoration: underline;}
+
+#closeAjaxForm:hover { cursor: pointer;}
+#ajaxErrorList span { display: block;}
+
+.amend_error, .errorField { color: red;}
+.errorField ul { margin: 0;}
+
+#menu a.disabledTab, #menu a.disabledTab:hover { background: #888;color: #fff;cursor: default;}
+
+.duty-list div input { float: left;margin-right: 10px;}
+.duty-list label:hover { cursor: pointer;}
+.duty-list div.disabled label:hover { cursor:default;}
+.duty-list div.disabled label { color: #888;}
+.duty-list div label { display: inline-block;margin-top: 7px;}
+
+.fire-date { margin-top: 10px;}
+
+/* Styles for filters on employee list page
+----------------------------------------------------------*/
+#SearchString { width: 130px;}
+
+table#finKeyTable {width: 430px;}
+table#finKeyTable div { margin: 0;padding: 0;}
+table#periodSelector {width: 550px;}
+table#periodSelector td, table#finKeyTable td,
+.individ-data table td, .individ-payroll table td, .company-data table td, .transactionType-data table td, .userRoles-data td, .userRoles-data tr.even, .userRoles-data tr:nth-child(2n) td { background: none;}
+table#finKeyTable td, table#periodSelector td { border: none;}
+table#finKeyTable td:first-child, table#periodSelector td:first-child { font-weight: bold;text-align: right;padding-right: 20px;}
+
+/* payroll page grou actions
+----------------------------------------------------------*/
+
+#payrollFilters #filterSet { display: none;}
+#payrollFilters #filterSet li#payrollFilterBtns { width: auto;margin-right: 0;float: right;}
+#payrollFilters #filterSet li.bank-payrolls-li { width: 226px;}
+.bank-payrolls-li .select-wrapper, .row-in-progress .select-wrapper { float: left;margin-right: 0;}
+
+.bw-btn-long, .bw-btn-short { display: inline-block;padding: 6px 6px 4px 30px;border: 1px solid #a0a0a0;float: left;
+                  color: #6d6d6d;background: url(images/icon16_massPayroll.png) 7px 0 no-repeat; 
+                  text-decoration: none;font-weight: bold;margin-right: 8px;font-family: verdana;font-size: 1.1em;height: 18px;
+                  box-shadow: 0 1px 0 white;
+                  }
+.bw-btn-short { margin-right: 0;padding: 0;margin-left: 5px;height: 28px;width: 30px;overflow: hidden;text-indent: -200px;}                 
+.bw-btn-long:hover, .bw-btn-short:hover {border-color:#f37021; background-color: #f37021;color: #fff;background-position: 7px 100%;cursor: pointer;}
+
+.bw-btn-long.disabledBtn, .bw-btn-long.disabledBtn:hover,
+.bw-btn-short.disabledBtn, .bw-btn-short.disabledBtn:hover { color: #b5b5b5;border-color: #b5b5b5;background-position: 7px -29px;background-color: transparent;cursor: default;} 
+.bw-btn-long.noAccess,.bw-btn-long.noAccess:hover,
+.bw-btn-short.noAccess,.bw-btn-short.noAccess:hover { color: #b5b5b5;border-color: orange;background-position: 7px -29px;background-color: transparent;cursor: default;}
+
+#groupActions a#generateBankPayroll { background-image: url(images/icon16_massVedomost.png); }
+#groupActions a#generateActs { background-image: url(images/icon16_massAct.png); }
+#groupActions a#generateSalary { background-image: url(images/icon16_massSalary.png); }
+#payrollFilterBtns input[type='submit'] { background-image: url(images/icon16_apply.png);width: auto;text-indent: 0;}
+#payrollFilterBtns a#clearButton { background-image: url(images/icon16_brush.png);}
+#payrollFilterBtns a#rememberButton { background-image: url(images/icon16_pinch.png);}
+.bank-payrolls-li a.view-bankpayroll {background-image: url(images/icon16_pdfBW.png);}
+.bank-payrolls-li a.delete-bankpayroll {background-image: url(images/icon16_trashBW.png);}
+#groupActions a#printActs { margin-right: 0; }
+
+
+#payrollFilterBtns input, #payrollFilterBtns a { margin: 0 0 0 6px;}
+
+
+#hiddableControl { border-top: 1px solid #888;text-align: center;margin-bottom: 10px;} 
+#hiddableControl a {display: inline-block; border: 1px solid #888;position: relative;
+    color: #666;font-weight: bold;text-decoration: none;text-shadow: 0 1px #fff;
+    background: url(images/filterArrows.png) 30px 0 no-repeat;
+    box-shadow: 0 1px 0 0 white;
+    border-top: none;padding: 7px 65px;border-bottom-left-radius: 5px;border-bottom-right-radius: 5px;}
+#hiddableControl > a:hover { background-color: #E0E0E0;}
+#hiddableControl a span { position: absolute;top: 0;right: 35px;
+                          display: inline-block;height: 100%;width: 16px;text-indent: -200px;overflow: hidden;background: url(images/icon16_pinch.png) 0 -28px no-repeat;}
+
+#hiddableControl a.openedFilters { background-position: 30px 100%;}
+
+
+/* DeleteAction styles */
+
+#commentOnDelete { width: 98%;height: 100px;margin-top: 5px;margin-right: 0;}
+
+.info-row.to-delete { color: #6d6d6d;}
+.info-row.to-delete .delete { background-position: 0 -16px;}
+.info-row.to-delete .edit { background-position: 0 100%;}
+
+
+/* Duties styles *//*Transaction Types*/
+
+.companyUserList { width: 575px !important; }
+.draggable:hover {cursor: move;}
+.draggable.noAccess:hover {cursor: default;}
+.draggable.dimmed:hover {cursor: default;}
+.draggable.dimmed td, .active-row.dimmed td, .companyUserList .companyUserRow.dimmed td, .validationsList .validationRow.dimmed td, tr.dimmed .td { background-color: #f5f5f5;color: #888;}
+.dutiesList .ps-name, .transactionTypesList .ps-name, .interactive-table .ps-name, .companyUserList .ps-name  { width: 470px;max-width: 470px;overflow: hidden;}
+.dutiesList .ps-default, .transactionTypesList .ps-isActive, .interactive-table .ps-isActive { width: 100px;text-align: center;}
+.companyUserList .ps-action { width: 60px;}
+.dutiesList td.ps-action,
+.sortable-table td.ps-action {
+    background-image: url(images/icon16_draggable.png);
+    background-position: 90% 50%;
+    background-repeat: no-repeat;
+}
+.sortable-table td.ps-action.noAccess {
+    background-image: none;
+}
+
+.dimmed td {background-color: #F5F5F5;}
+.editor-field td { background: #fff;}
+
+.iconed-button { display: inline-block;width: 16px;height: 16px;overflow: hidden;
+                            margin-right: 10px;
+                             text-indent: 200px;background: url(images/icon16_pluswhite.png) 0 0 no-repeat;}
+.iconed-button:hover { background-position: 0 -16px;cursor: pointer;}
+.draggable.dimmed .iconed-button, .draggable.dimmed .iconed-button:hover,
+.active-row.dimmed .iconed-button, .companyUserList .companyUserRow.dimmed .iconed-button, .companyUserList .companyUserRow.dimmed .iconed-button:hover 
+{ background-position: 0 100%;cursor: default;}
+
+.iconed-button.history {background-image: url(images/icon16_historywhite.png);}
+.iconed-button.history.active {background-position: 0 100%;}
+
+.iconed-button.edit { background-image: url("images/icon16_edit.png");float: left;}
+.iconed-button.delete { background-image: url("images/icon16_trash.png");}
+.roles .iconed-button.delete {margin-right: 0;}
+.iconed-button.copy { background-image: url("images/icon16_copy.png"); }
+.iconed-button.save { background-image: url("images/icon16_save.png");}
+.iconed-button.close { background-image: url("images/icon16_undo.png");}
+.iconed-button.add { background-image: url(images/icon16_apply_orange.png);}
+.iconed-button.closePeriod { background-image: url(images/icon16_lock.png); margin-right: 0;}
+.iconed-button.openPeriod { background-image: url(images/icon16_unlock.png); margin-right: 0;}
+
+#dutyName, #positionName, #userName, #roleName { width: 475px;margin: 0;}
+.positions #positionName { width: 460px;text-align: left;}
+.dutiesList .itIsDefault, .transactionTypesList .isChecked, .interactive-table .isChecked, .currencyClasses-table .isChecked {
+    background-image: url(images/icon16_checked.png);
+    background-position: 50% 50%;
+    background-repeat: no-repeat;
+}
+.dutiesList .dimmed .itIsDefault, .interactive-table .dimmed .isChecked {background-image: url(images/icon16_checkedDimmed.png);}
+
+
+/*Transaction Types*/
+.transactionTypesList .ps-type { width: 170px;max-width: 170px;overflow: hidden;}
+.transactionTypesList .ps-type.positive { color: #317f1f;}
+.transactionTypesList .ps-type.negative { color: red;}
+
+.tabs ul { width: 500px;}
+.tabs ul li:first-child { margin-left: 20%;}
+.tabs ul li a.disabledTab, .tabs ul li a.disabledTab:hover {
+    float: left;
+    color: #666;
+    margin-right: 25px;
+    text-shadow: 1px 1px 0 white;
+    text-decoration: none;
+    padding: 5px;display: block;
+    text-align:center;
+    pointer-events: none;
+    cursor: default;
+    font-weight: bold;
+}
+
+.tabs-content {
+    width:auto;
+    height:500px;
+    overflow:hidden;
+}
+
+.tabs-content ul {
+    list-style: none;
+}
+.tabs-content ul li {
+    width:auto;
+    height:500px;
+    padding-top: 10px;
+}
+
+.tabs {text-align: center;}
+.tabs ul {
+    display: inline-block;
+    list-style: none;
+    position: relative;
+}
+
+.tabs li { float: left;margin-right: 20px;position: relative;}
+.tabs ul li a {
+    float: left;
+    color: #1F78C5; 
+    margin-right: 25px;
+    text-shadow: 1px 1px 0 white;
+    text-decoration: none;
+    padding: 5px;display: block;
+    text-align:center;
+}
+.tabs ul li a.active {
+    color: #000000;
+    cursor: text;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.tabs ul li a span { border-bottom: 1px dashed #1F78C5;}
+.tabs ul li a.active span { border-bottom: none;}
+
+
+/* PositionCategories manager styles */
+
+.ps-shortname { width: 300px;}
+.ps-fullname { width: 300px;}
+.ps-action { width: 80px;}
+.positionTable .ps-action { width: 90px;}
+.active-row.draggable { cursor: move;}
+.positionTable .ps-name { width: 200px;}
+
+#positionCategories .editor-field #shortName { margin: 0;width: 190px;}
+#positionCategories .editor-field #fullName { margin: 0;width: 390px;}
+
+#positionLevels .ps-shortname { width: 180px;}
+#positionLevels .ps-fullname { width: 220px;}
+
+.ps-level, .ps-category { width: 250px;}
+
+
+#positionCategories .ps-shortname { width: 200px;}
+#positionCategories .ps-fullname { width: 400px;}
+
+#AssignedLevels label:hover { cursor: pointer;}
+#AssignedLevels #levelOptions { display: none;margin-top: 5px;}
+
+.ps-action input { padding: 0;border: 0;margin: 0;display: inline-block;height: 16px;width: 16px;margin-right: 10px;}
+
+
+.ps-level { width: 150px;}
+.ps-from, .ps-to { width: 100px;}
+ 
+/* Company manager styles */
+
+#companyCreator { display: none;}
+
+/* Currency Rates 
+----------------------------------------------------------*/
+
+#statusSelector { margin-bottom: 10px;}
+#statusSelector label { margin-right: 20px;}
+#statusSelector input { margin-right: 10px;}
+
+#currencyTableSet { clear: both;}
+#currencyTableSet table { }
+
+#currencyDropDown { margin-bottom: 10px;}
+
+.exchangeTable .ex-date input { width: 95%;}
+.exchangeTable .ex-val input {margin: 0;width: 95%;}
+.exchangeTable.inactive { color: #888;}
+
+#currencyClasses .inactive { color: #888;}
+#currencyClasses .inactive-option { display: none;}
+
+/* Custom login form styles */
+
+#login
+{
+    background-color: #fff;
+    background-image: -webkit-gradient(linear, left top, left bottom, from(#fff), to(#eee));
+    background-image: -webkit-linear-gradient(top, #fff, #eee);
+    background-image: -moz-linear-gradient(top, #fff, #eee);
+    background-image: -ms-linear-gradient(top, #fff, #eee);
+    background-image: -o-linear-gradient(top, #fff, #eee);
+    background-image: linear-gradient(top, #fff, #eee);  
+    width: 400px;
+    margin: 0px 0 0 -230px;
+    padding: 30px 30px 20px 30px;
+    position: relative;
+    overflow: hidden;
+    left: 50%;
+    z-index: 0;
+    -moz-border-radius: 3px;
+    -webkit-border-radius: 3px;
+    border-radius: 3px;  
+    -webkit-box-shadow:
+          0 0 2px rgba(0, 0, 0, 0.2),
+          0 1px 1px rgba(0, 0, 0, .2),
+          0 3px 0 #fff,
+          0 4px 0 rgba(0, 0, 0, .2),
+          0 6px 0 #fff,  
+          0 7px 0 rgba(0, 0, 0, .2);
+    -moz-box-shadow:
+          0 0 2px rgba(0, 0, 0, 0.2),  
+          1px 1px   0 rgba(0,   0,   0,   .1),
+          3px 3px   0 rgba(255, 255, 255, 1),
+          4px 4px   0 rgba(0,   0,   0,   .1),
+          6px 6px   0 rgba(255, 255, 255, 1),  
+          7px 7px   0 rgba(0,   0,   0,   .1);
+    box-shadow:
+          0 0 2px rgba(0, 0, 0, 0.2),  
+          0 1px 1px rgba(0, 0, 0, .2),
+          0 3px 0 #fff,
+          0 4px 0 rgba(0, 0, 0, .2),
+          0 6px 0 #fff,  
+          0 7px 0 rgba(0, 0, 0, .2);
+}
+
+#login:before
+{
+    content: '';
+    position: absolute;
+    z-index: -1;
+    border: 1px dashed #ccc;
+    top: 5px;
+    bottom: 5px;
+    left: 5px;
+    right: 5px;
+    -moz-box-shadow: 0 0 0 1px #fff;
+    -webkit-box-shadow: 0 0 0 1px #fff;
+    box-shadow: 0 0 0 1px #fff;
+}
+
+/*--------------------*/
+
+#login h1
+{
+    
+    text-transform: uppercase;
+    text-align: center;
+    color: #666;
+    margin: 0 0 30px 0;
+    letter-spacing: 4px;
+    font: normal 26px/1 Verdana, Helvetica;
+    position: relative;
+}
+
+
+/*--------------------*/
+
+#login fieldset
+{
+    border: 0;
+    padding: 0;
+    margin: 0;
+}
+
+/*--------------------*/
+
+#login input, #login select
+{
+    background: #f1f1f1 url(images/login-sprite.png) no-repeat;
+    padding: 15px 15px 15px 30px;
+    margin: 5px 0;
+    width: 353px; /* 353 + 2 + 45 = 400 */
+    border: 1px solid #ccc;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    border-radius: 5px;
+    -moz-box-shadow: 0 1px 1px #ccc inset, 0 1px 0 #fff;
+    -webkit-box-shadow: 0 1px 1px #ccc inset, 0 1px 0 #fff;
+    box-shadow: 0 1px 1px #ccc inset, 0 1px 0 #fff;
+    position: relative;
+    z-index: 1;
+    color: #888;
+}
+#login select {width: 400px;height: 58px;}
+#login input.disabled {border: 1px solid #e2e2e2;background-color: #E0E0E0;}
+#login select:focus, #login input:focus { background-color: #fff;}
+
+#login #companyCreator input {background-position: 7px 0;}
+#login #companyCreator select { background-position: 7px 0; color: #888;}
+#login #inputs select#companiesSelector { width: 330px;background-position: 7px -150px;
+                                        padding: 15px 15px 12px 30px;
+                                          color: #888;float: left;margin: 0;}
+#login #inputs select#companiesSelector.fire-fox, 
+#login #companyCreator select.fire-fox { padding-top: 19px;}
+#login #inputs select:focus { background-color: #fff;}
+#login #inputs select option { padding: 5px 5px 5px 30px;}
+#login #inputs select .key-dependant { background: url(images/login-sprite.png) 7px -61px no-repeat;}
+#login #companyCreator input#CompanyName { background-position:  7px -150px;}
+#login #inputs select:disabled { min-height: 56px;background-color: #E0E0E0;}
+
+.chrome-wrapper { position: relative;overflow: hidden;display: inline-block;}
+#login .chrome-wrapper select { background-image: none;color: #a9a9a9;}
+.before {
+    display: block;
+    position: absolute;
+    width: 16px; height: 16px;
+    top: 24px;left: 7px;
+    background: url(images/login-sprite.png) 0 -171px no-repeat;
+    z-index: 5;
+}
+#login #companyCreator .chrome-wrapper .before { top: 27px;}
+::-webkit-input-placeholder, :-moz-placeholder, ::-moz-placeholder, :-ms-input-placeholder {color: #888;} 
+
+
+#login #Login, #login #Email, #login #UserFIO, #login #nameOrEmail
+{
+    background-position: 5px 0, 97% 20px;
+}
+
+#login #Password, #login #ConfirmPassword, #login #OldPassword
+{
+    background-position: 5px -50px, 97% 20px;
+}
+
+#login #inputs input:focus
+{
+    background-color: #fff;
+    border-color: #e8c291;
+    outline: none;
+    -moz-box-shadow: 0 0 0 1px #e8c291 inset;
+    -webkit-box-shadow: 0 0 0 1px #e8c291 inset;
+    box-shadow: 0 0 0 1px #e8c291 inset;
+}
+
+.register #Login, .register #Email, .register #Password, .register #ConfirmPassword {
+    background-color: #f1f1f1;
+    background-repeat: no-repeat;
+    background-image: url(images/login-sprite.png),url(images/icon16_screamer.png);
+    padding: 15px 15px 15px 30px;
+    margin: 5px 0;
+    width: 353px; /* 353 + 2 + 45 = 400 */
+    border: 1px solid #ccc;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    border-radius: 5px;
+    -moz-box-shadow: 0 1px 1px #ccc inset, 0 1px 0 #fff;
+    -webkit-box-shadow: 0 1px 1px #ccc inset, 0 1px 0 #fff;
+    box-shadow: 0 1px 1px #ccc inset, 0 1px 0 #fff;
+    position: relative;
+    z-index: 1;
+    color: #888;
+}
+
+
+.add-btn-holder { overflow: hidden;margin-bottom: 5px;position: relative;}
+
+#addInstance {
+    display: inline-block;
+    width: 58px;
+    height: 58px;
+    background: url(images/icon58_newcompany.png) 0 0 no-repeat;
+    float: right;
+}
+
+#addInstance:hover { background-position: 0 100%;cursor: pointer;}
+
+/*--------------------*/
+#login #actions
+{
+    margin: 25px 0 0 0;
+}
+
+#login #submit, #login .login-btn, #login #cancel, #login #changePass, #login #restorePass
+{
+    background: none;
+    background-color: #00cd00;
+    /*background-image: -webkit-gradient(linear, left top, left bottom, from(#50f290), to(#40e084));*/
+    /*background-image: -webkit-linear-gradient(top, #f4a779, #f37528);
+    background-image: -moz-linear-gradient(top, #f4a779, #f37528);
+    background-image: -ms-linear-gradient(top, #f4a779, #f37528);
+    background-image: -o-linear-gradient(top, #f4a779, #f37528);
+    background-image: linear-gradient(top, #f4a779, #f37528);*/
+    
+    -moz-border-radius: 8px;
+    -webkit-border-radius: 8px;
+    border-radius: 8px;
+    
+   /* text-shadow: 0 1px 0 rgba(255,255,255,0.5);*/
+    
+     /*-moz-box-shadow: 0 0 1px rgba(0, 0, 0, 0.3), 0 1px 0 rgba(255, 255, 255, 0.3) inset;
+     -webkit-box-shadow: 0 0 1px rgba(0, 0, 0, 0.3), 0 1px 0 rgba(255, 255, 255, 0.3) inset;
+     box-shadow: 0 0 1px rgba(0, 0, 0, 0.3), 0 1px 0 rgba(255, 255, 255, 0.3) inset;*/    
+    
+    border-width: 1px;
+    border-style: solid;
+    border-color: #333333 #333333 #333333 #333333;
+
+    float: left;
+    height: 35px;
+    padding: 0;
+    width: 120px;
+    cursor: pointer;
+    font: bold 15px Arial, Helvetica;
+    color: #fff;
+}
+
+#login #changePass,
+#login #restorePass { width : 200px}
+#login #cancel { float: right}
+
+#login .login-btn { text-align: center;text-decoration: none;padding-top: 8px;height: 27px;margin-right: 15px;margin-top: 20px;}
+
+#login #submit:hover,#submit:focus, #login .login-btn:hover
+{		
+    background-color: #008b00;
+    /*background-image: -webkit-gradient(linear, left top, left bottom, from(#44bb82), to(#3ecc74));*/
+    /*background-image: -webkit-linear-gradient(top, #f37528, #f4a779);
+    background-image: -moz-linear-gradient(top, #f37528, #f4a779);
+    background-image: -ms-linear-gradient(top, #f37528, #f4a779);
+    background-image: -o-linear-gradient(top, #f37528, #f4a779);
+    background-image: linear-gradient(top, #f37528, #f4a779);*/
+}	
+
+#login .login-btn.disabled {background: #E0E0E0;border: none;color: #999999;cursor: default;}
+
+#login #submit:active
+{		
+    outline: none;
+   
+     -moz-box-shadow: 0 1px 4px rgba(0, 0, 0, 0.5) inset;
+     -webkit-box-shadow: 0 1px 4px rgba(0, 0, 0, 0.5) inset;
+     box-shadow: 0 1px 4px rgba(0, 0, 0, 0.5) inset;		
+}
+
+#login #submit::-moz-focus-inner
+{
+  border: none;
+}
+
+#login #actions a
+{
+    color: #3151A2;    
+    float: right;
+    line-height: 35px;
+    margin-left: 10px;
+}
+
+#buildInfo { text-align: center;display: inline-block;padding: 5px 0;width: 100%;}
+
+/*--------------------*/
+
+#login #back
+{
+    display: block;
+    text-align: center;
+    position: relative;
+    top: 60px;
+    color: #999;
+}
+
+.big_logo {
+	background: url(images/big_logo.jpg) 0 50% no-repeat;
+	width:361px;
+	height:156px;
+	margin:0 auto;
+	padding:90px 0 90px 0;
+	
+}
+
+/*Transaction Types*/
+.dutiesList .ps-type { width: 170px;max-width: 170px;overflow: hidden;}
+.ps-type.positive { color: #317f1f;}
+.ps-type.negative { color: red;}
+.dutiesList .ps-type-action { width: 80px;}
+
+/*drop menu*/
+.topNav{ float: left;}
+
+.loginDiv
+{
+    float: left;
+    margin-top: 9px;
+    padding: 0 10px 1px 3px;
+}
+.settings-button
+{
+   width: 36px;
+   height: 36px;
+   overflow: hidden;
+   background: url(images/arrow_ex.png) no-repeat 10px 15px #4a4a4a;
+   display: inline-block;
+   position: relative;
+   float: left;
+}
+
+.settings-button:hover, .pressed {
+	background: url(images/arrow_ex_black.png) no-repeat 10px 15px #fff;
+}
+
+a#selectInstance { background: url(images/icon_company_black.png)  no-repeat 0 5px #fff; }
+a#changePassword { background: url(images/login-sprite_black.png)  no-repeat  0 -62px #fff; }
+a#logOff { background: url(images/exit.png)  no-repeat 0 5px #fff; }
+
+
+.tool-container {
+	background-color: #fff;
+	border-bottom-right-radius: 7px;
+	border-bottom-left-radius: 7px;
+    box-shadow: 0 1px 0 white;
+}
+
+.tool-item {
+	height: 100%;
+	display: block;				
+	width: 175px;
+	text-align: left;
+    margin: 10px 0px;
+    padding: 7px 0 0 20px;
+    
+}
+
+a.tool-item {
+    color: #000;
+    text-decoration: none;
+    margin-left: 15px;
+
+}
+
+.tool-item span {
+     border-bottom: 1px dashed #000;
+     margin-left: 7px;
+}
+
+.tool-item span:hover {
+     border-bottom: none;
+}
+
+.tool-item:first-child {
+	border-top: none;
+}
+
+.tool-item:last-child {
+	    margin-bottom: 20px;
+}
+
+.userRoles-wrapper { border-radius: 7px;width: 450px;overflow: hidden;margin-top: 10px; }
+.userRoles-Ok-btn { margin-left: 50%;}
+
+.actions .noAccess { border: 1px solid orange;}
+a.noAccess, span.noAccess  { border: 1px solid orange;}
+.addNewUser.noAccess, .addNewUser.noAccess:hover { cursor: default;color: orange; border: none;}

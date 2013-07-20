@@ -1,0 +1,32 @@
+﻿@using CommonClasses
+@using CommonClasses.Helpers
+@using WebSite.Helpers
+@if (SessionHelper.IsAthorized())
+{
+    <div class="loginDiv">@SessionHelper.CompanyName, <strong>@SessionHelper.UserName</strong></div>
+
+    <div class="topNav">
+        
+        <a id="settings-button" class="settings-button"></a>
+        <div id="user-toolbar-options" style="display: none;">
+           <a id="selectInstance" href="@Url.Action("SelectInstance", "Login")"><span>Сменить компанию</span></a>
+           @if(AppConfiguration.AuthenticationMethod == AuthenticationType.Native)
+            {
+               <a  id="changePassword" href="@Url.Action("ChangePassword", "Login")"><span>Изменить пароль</span></a>
+            }
+            <a id="logOff" href="@Url.Action("LogOff", "Login")"><span>Выход</span></a>
+        </div>
+    </div>
+
+    
+}
+else
+{
+    @:[ @Html.ActionLink("Войти", "LogOn", "Login") ]
+}
+<script type="text/javascript" src="@Url.Content("~/Scripts/jquery.toolbar.down.js")"></script>
+<script type="text/javascript">
+    jQuery(document).ready(function ($) {
+        $('#settings-button').toolbar({ content: '#user-toolbar-options', hideOnClick: true });
+
+    });    </script>
