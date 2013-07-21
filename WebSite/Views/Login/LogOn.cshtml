@@ -11,8 +11,8 @@
     var companies = ViewBag.UserCompanies as IList<Instance>;
 }
 
-@*<div class="big_logo"></div>*@
-<div id="login">
+<span class="topspan"></span>
+<div id="login" class="niceframe">
     @if (SessionHelper.UserName == null)
     {
         using (Html.BeginForm())
@@ -29,9 +29,9 @@
             }
             
             <div id="inputs">
-                @Html.TextBoxFor(m => m.Login, new {placeholder = "Логин"})
+                @Html.TextBoxFor(m => m.Login, new {placeholder = "Логин", @class = "LoginTextbox"})
                 @Html.ValidationMessageFor(m => m.Login)
-                @Html.PasswordFor(m => m.Password, new {placeholder = "Пароль"})
+                @Html.PasswordFor(m => m.Password, new {placeholder = "Пароль", @class = "LoginTextbox"})
                 @Html.ValidationMessageFor(m => m.Password)
             </div>
 
@@ -45,8 +45,7 @@
                 @if(AppConfiguration.AuthenticationMethod == AuthenticationType.Native){
                     @Html.ActionLink("Забыли пароль?", "ChangePassword")
                 }
-                @Html.ActionLink("Зарегистрироваться", "Register")
-                <span id="buildInfo">Hudson Build: @AppConfiguration.HudsonBuildNumber</span>
+                @Html.ActionLink("Регистрация", "Register")
             </fieldset>
         }
     }
