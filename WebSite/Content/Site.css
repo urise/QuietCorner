@@ -1,19 +1,34 @@
 html, body
 {
-    font: 12px Verdana, Arial, Helvetica;    
+    font: 12px Verdana, Arial, Helvetica;
     margin: 0;
     height: 100%;
     position: relative;
-	text-align: center;
+    text-align: center;
 }
+
 div.niceframe
 {
-	border: 2px double grey;
+    border: 2px double grey;
 }
+
 fieldset
 {
-	border: 0;
+    border: 0;
 }
+
+select
+{
+    padding: 10px 10px 10px 20px;
+    font: 14px Arial;
+    border-radius: 8px;
+    width: 270px;
+    float: left;
+}
+select:focus {
+    outline: none;
+}
+
 input[type=submit]
 {
     background: none;
@@ -24,21 +39,16 @@ input[type=submit]
     background-image: -ms-linear-gradient(top, #f4a779, #f37528);
     background-image: -o-linear-gradient(top, #f4a779, #f37528);
     background-image: linear-gradient(top, #f4a779, #f37528);*/
-    
     -moz-border-radius: 8px;
     -webkit-border-radius: 8px;
     border-radius: 8px;
-    
-   /* text-shadow: 0 1px 0 rgba(255,255,255,0.5);*/
-    
-     /*-moz-box-shadow: 0 0 1px rgba(0, 0, 0, 0.3), 0 1px 0 rgba(255, 255, 255, 0.3) inset;
+    /* text-shadow: 0 1px 0 rgba(255,255,255,0.5);*/
+    /*-moz-box-shadow: 0 0 1px rgba(0, 0, 0, 0.3), 0 1px 0 rgba(255, 255, 255, 0.3) inset;
      -webkit-box-shadow: 0 0 1px rgba(0, 0, 0, 0.3), 0 1px 0 rgba(255, 255, 255, 0.3) inset;
-     box-shadow: 0 0 1px rgba(0, 0, 0, 0.3), 0 1px 0 rgba(255, 255, 255, 0.3) inset;*/    
-    
+     box-shadow: 0 0 1px rgba(0, 0, 0, 0.3), 0 1px 0 rgba(255, 255, 255, 0.3) inset;*/
     border-width: 1px;
     border-style: solid;
     border-color: #333333 #333333 #333333 #333333;
-
     float: left;
     height: 25px;
     padding: 0;
@@ -46,25 +56,60 @@ input[type=submit]
     cursor: pointer;
     font: bold 15px Arial, Helvetica;
     color: #fff;
-	margin: 0 12px;
+    margin: 0 12px;
 }
+
 .LoginTextbox
 {
-	width: 300px;
-	padding: 5px 5px 5px 5px;
-	margin: 5px;
-	border-radius: 5px;
+    width: 300px;
+    padding: 5px 5px 5px 5px;
+    margin: 5px;
+    border-radius: 5px;
 }
-span.topspan { 
+
+span.topspan
+{
     height: 100%;
     vertical-align: middle;
-    display: inline-block; 
+    display: inline-block;
 }
+
 div#login
 {
-	width: 350px;
-	display: inline-block;
-	vertical-align: middle;
-	border-radius: 15px;
-	background-color: #f2f2f2;
+    width: 350px;
+    display: inline-block;
+    vertical-align: middle;
+    border-radius: 15px;
+    background-color: #f2f2f2;
+    padding: 20px 20px 20px 20px;
+}
+
+#addInstance
+{
+    display: inline-block;
+    width: 32px;
+    height: 32px;
+    background: url(images/add32.png) 0 0 no-repeat;
+    float: right;
+}
+
+.login-btn
+{
+    text-align: center;
+    text-decoration: none;
+    padding-top: 8px;
+    height: 25px;
+    margin-right: 15px;
+    margin-top: 20px;
+    background: none;
+    background-color: #00cd00;
+    border-radius: 8px;
+    border-width: 1px;
+    border-style: solid;
+    border-color: #333333 #333333 #333333 #333333;
+    float: left;
+    width: 90px;
+    cursor: pointer;
+    font: bold 15px Arial, Helvetica;
+    color: #fff;
 }

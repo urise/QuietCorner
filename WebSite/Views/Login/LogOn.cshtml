@@ -51,7 +51,7 @@
     }
     else
     {
-        <h1>Выберите компанию</h1>
+        <h1>Куда зайдем?</h1>
     
         //if (TempData["LoginErrors"] != null)
         //{
@@ -75,10 +75,10 @@
                 <span id="addInstance" class="" title="Добавить новую компанию"></span>
             </div>
         </div>
-    
+        <div>
         <span id="goToCompany" class="login-btn" title="Войти в компанию">Войти</span>
         @Html.ActionLink("Выход", "LogOff", "Login", null, new { @title = "Выйти из системы", @class = "login-btn", id = "LogOut" }) 
-        
+        </div>
         <script type="text/javascript">
             $(document).ready(function () {
                 setupInteractivity();
