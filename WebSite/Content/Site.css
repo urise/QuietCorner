@@ -17,6 +17,35 @@ fieldset
     border: 0;
 }
 
+input[type=submit]
+{
+    background: none;
+    background-color: #00cd00;
+    border-radius: 8px;
+    border-width: 1px;
+    border-style: solid;
+    border-color: #333333 #333333 #333333 #333333;
+    float: left;
+    height: 32px;
+    padding: 0;
+    width: 90px;
+    cursor: pointer;
+    font: bold 15px Arial, Helvetica;
+    color: #fff;
+    margin: 0 12px;
+}
+input[type=submit]:hover {
+    background-color: #00ac00;
+}
+
+.LoginTextbox
+{
+    width: 300px;
+    padding: 5px 5px 5px 5px;
+    margin: 5px;
+    border-radius: 5px;
+}
+
 select
 {
     padding: 10px 10px 10px 20px;
@@ -27,44 +56,6 @@ select
 }
 select:focus {
     outline: none;
-}
-
-input[type=submit]
-{
-    background: none;
-    background-color: #00cd00;
-    /*background-image: -webkit-gradient(linear, left top, left bottom, from(#50f290), to(#40e084));*/
-    /*background-image: -webkit-linear-gradient(top, #f4a779, #f37528);
-    background-image: -moz-linear-gradient(top, #f4a779, #f37528);
-    background-image: -ms-linear-gradient(top, #f4a779, #f37528);
-    background-image: -o-linear-gradient(top, #f4a779, #f37528);
-    background-image: linear-gradient(top, #f4a779, #f37528);*/
-    -moz-border-radius: 8px;
-    -webkit-border-radius: 8px;
-    border-radius: 8px;
-    /* text-shadow: 0 1px 0 rgba(255,255,255,0.5);*/
-    /*-moz-box-shadow: 0 0 1px rgba(0, 0, 0, 0.3), 0 1px 0 rgba(255, 255, 255, 0.3) inset;
-     -webkit-box-shadow: 0 0 1px rgba(0, 0, 0, 0.3), 0 1px 0 rgba(255, 255, 255, 0.3) inset;
-     box-shadow: 0 0 1px rgba(0, 0, 0, 0.3), 0 1px 0 rgba(255, 255, 255, 0.3) inset;*/
-    border-width: 1px;
-    border-style: solid;
-    border-color: #333333 #333333 #333333 #333333;
-    float: left;
-    height: 25px;
-    padding: 0;
-    width: 90px;
-    cursor: pointer;
-    font: bold 15px Arial, Helvetica;
-    color: #fff;
-    margin: 0 12px;
-}
-
-.LoginTextbox
-{
-    width: 300px;
-    padding: 5px 5px 5px 5px;
-    margin: 5px;
-    border-radius: 5px;
 }
 
 span.topspan
@@ -87,10 +78,17 @@ div#login
 #addInstance
 {
     display: inline-block;
-    width: 32px;
-    height: 32px;
+    width: 36px;
+    height: 36px;
     background: url(images/add32.png) 0 0 no-repeat;
+    background-position: 1px 2px;
     float: right;
+    border: none;
+    border-radius: 3px;
+}
+
+#addInstance:hover {
+    border: 1px double black;
 }
 
 .login-btn
@@ -112,4 +110,7 @@ div#login
     cursor: pointer;
     font: bold 15px Arial, Helvetica;
     color: #fff;
+}
+.login-btn:hover {
+    background-color: #00ac00;
 }

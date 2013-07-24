@@ -63,7 +63,7 @@
         
         <div id="inputs" data-lastcompany="@lastInstance">
             <div class="add-btn-holder">
-                <select id="companiesSelector">
+                <select id="instanceSelector">
                     @if (companies != null)
                     {
                         foreach (var c in companies)
@@ -77,7 +77,7 @@
         </div>
         <div>
         <span id="goToCompany" class="login-btn" title="Войти в компанию">Войти</span>
-        @Html.ActionLink("Выход", "LogOff", "Login", null, new { @title = "Выйти из системы", @class = "login-btn", id = "LogOut" }) 
+        @Html.ActionLink("Выйти", "LogOff", "Login", null, new { @title = "Выйти из системы", @class = "login-btn", id = "LogOut" }) 
         </div>
         <script type="text/javascript">
             $(document).ready(function () {

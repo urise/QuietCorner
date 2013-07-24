@@ -135,6 +135,7 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Content Include="Content\images\add32.png" />
     <Content Include="Content\images\alp_ukr.png" />
     <Content Include="Content\images\arrow_ex.png" />
     <Content Include="Content\images\arrow_ex_black.png" />
