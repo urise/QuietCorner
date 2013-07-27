@@ -1,3 +1,6 @@
+/*===================================================================================*/
+/*==================== COMMON SECTION ===============================================*/
+/*===================================================================================*/
 html, body
 {
     font: 12px Verdana, Arial, Helvetica;
@@ -6,17 +9,18 @@ html, body
     position: relative;
     text-align: center;
 }
-
-div.niceframe
-{
-    border: 2px double grey;
-}
-
 fieldset
 {
     border: 0;
 }
-
+input[type=text], input[type=password]
+{
+    width: 100%;
+    padding: 5px 5px 5px 5px;
+    margin: 5px;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
 input[type=submit]
 {
     background: none;
@@ -27,25 +31,26 @@ input[type=submit]
     border-color: #333333 #333333 #333333 #333333;
     float: left;
     height: 32px;
-    padding: 0;
-    width: 90px;
+    padding: 0px 14px 0px 14px;
     cursor: pointer;
     font: bold 15px Arial, Helvetica;
     color: #fff;
-    margin: 0 12px;
 }
-input[type=submit]:hover {
+input[type=submit]:hover
+{
     background-color: #00ac00;
 }
 
-.LoginTextbox
+div.niceframe
 {
-    width: 300px;
-    padding: 5px 5px 5px 5px;
-    margin: 5px;
-    border-radius: 5px;
+    border: 2px double grey;
+    display: inline-block;
+    vertical-align: middle;
+    border-radius: 15px;
+    background-color: #f2f2f2;
+    padding: 20px 20px 20px 20px;
+    max-width: 350px;
 }
-
 select
 {
     padding: 10px 10px 10px 20px;
@@ -54,25 +59,17 @@ select
     width: 270px;
     float: left;
 }
-select:focus {
-    outline: none;
-}
+
+    select:focus
+    {
+        outline: none;
+    }
 
 span.topspan
 {
     height: 100%;
     vertical-align: middle;
     display: inline-block;
-}
-
-div#login
-{
-    width: 350px;
-    display: inline-block;
-    vertical-align: middle;
-    border-radius: 15px;
-    background-color: #f2f2f2;
-    padding: 20px 20px 20px 20px;
 }
 
 #addInstance
@@ -87,9 +84,10 @@ div#login
     border-radius: 3px;
 }
 
-#addInstance:hover {
-    border: 1px double black;
-}
+    #addInstance:hover
+    {
+        border: 1px double black;
+    }
 
 .login-btn
 {
@@ -111,6 +109,8 @@ div#login
     font: bold 15px Arial, Helvetica;
     color: #fff;
 }
-.login-btn:hover {
-    background-color: #00ac00;
-}
+
+    .login-btn:hover
+    {
+        background-color: #00ac00;
+    }

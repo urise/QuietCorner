@@ -12,7 +12,7 @@
 }
 
 <span class="topspan"></span>
-<div id="login" class="niceframe">
+<div class="niceframe">
     @if (SessionHelper.UserName == null)
     {
         using (Html.BeginForm())
@@ -63,7 +63,7 @@
         
         <div id="inputs" data-lastcompany="@lastInstance">
             <div class="add-btn-holder">
-                <select id="instanceSelector">
+                <select id="companiesSelector">
                     @if (companies != null)
                     {
                         foreach (var c in companies)

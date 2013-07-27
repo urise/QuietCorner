@@ -11,33 +11,33 @@
 <script src="@Url.Content("~/Scripts/jquery.validate.min.js")" type="text/javascript"></script>
 <script src="@Url.Content("~/Scripts/jquery.validate.unobtrusive.min.js")" type="text/javascript"></script>
 <script src="@Url.Content("~/Scripts/jquery.placeholder.js")" type="text/javascript"></script>
-<div class="big_logo"></div>
 
-@using (Html.BeginForm()) {
+<span class="topspan"></span>
+<div id="login" class="niceframe">
+@using (Html.BeginForm())
+{
 
-    <div id="login" class="register">
-        <h1>Регистрация</h1>
-            
-        @Html.ValidationSummary(true)
-        <fieldset id="inputs">
-            @Html.TextBoxFor(model => model.Login, new { placeholder = "Логин" })
-            @Html.ValidationMessageFor(model => model.Login)
-            @Html.PasswordFor(model => model.Password, new { placeholder = "Пароль" })
-            @Html.ValidationMessageFor(model => model.Password)
-            @Html.PasswordFor(model => model.ConfirmPassword,  new { placeholder = "Подтверждение пароля" })
-            @Html.ValidationMessageFor(model => model.ConfirmPassword)
-            @Html.TextBoxFor(model => model.Email,  new { placeholder = "Электронная почта" })
-            @Html.ValidationMessageFor(model => model.Email)
-            @Html.TextBoxFor(model => model.UserFio,  new { placeholder = "ФИО" })
-            @Html.ValidationMessageFor(model => model.UserFio)
-        </fieldset>
-        <fieldset id="actions">
-            <input type="submit" id="submit" value="Регистрация" />
-            <input type="submit" id="cancel" value="Отмена"  /> 
-        </fieldset>
-        
-    </div> 
+    <h1>Регистрация</h1>
+
+    @Html.ValidationSummary(true)
+    <fieldset id="inputs">
+        @Html.TextBoxFor(model => model.Login, new {placeholder = "Логин"})
+        @Html.ValidationMessageFor(model => model.Login)
+        @Html.PasswordFor(model => model.Password, new {placeholder = "Пароль"})
+        @Html.ValidationMessageFor(model => model.Password)
+        @Html.PasswordFor(model => model.ConfirmPassword, new {placeholder = "Подтверждение пароля"})
+        @Html.ValidationMessageFor(model => model.ConfirmPassword)
+        @Html.TextBoxFor(model => model.Email, new {placeholder = "Электронная почта"})
+        @Html.ValidationMessageFor(model => model.Email)
+        @Html.TextBoxFor(model => model.UserFio, new {placeholder = "ФИО"})
+        @Html.ValidationMessageFor(model => model.UserFio)
+    </fieldset>
+    <fieldset id="actions">
+        <input type="submit" id="submit" value="Регистрация" />
+        <input type="submit" id="cancel" value="Отмена"  /> 
+    </fieldset>
 }
+</div> 
 
 <script type="text/javascript">
     $(document).ready(function () {
