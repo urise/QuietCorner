@@ -14,7 +14,7 @@
         @using (Html.BeginForm("Users", "Users"))
         {
             string search = ViewBag.SearchString ?? string.Empty;
-            @Html.TextBox("SearchString", search) 
+            @Html.TextBox("SearchString", search)   
 
             <input type="submit" id="applyFilters" value="Поиск" title="Применить фильтр" class="bw-btn-long" />
             <input type="button" id="clearButton" value="Очистить" title="Очистить настройки фильтра"
@@ -26,10 +26,10 @@
 <br style="clear: both;"><br/>
 
 <div class="table-wrapper companyUserList">
-    <table class="pseudo-table companyUserList">
+    <table class="pseudo-table companyUserList" style="width:575px;">
         <tr class="pseudo-th">
-            <th class="ps-name">Логин</th>
-            <th class="ps-action">
+            <th class="ps-name" style="width:400px">Логин</th>
+            <th class="ps-action" style="width:60px">
                 <span class="new iconed-button @accessClass" title="Добавить нового пользователя">Добавить нового пользователя</span>
             </th>
         </tr>
