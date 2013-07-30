@@ -243,7 +243,7 @@ span.topspan
 /* TABLE
 ----------------------------------------------------------*/
 
-table 
+table.EditorTable
 {
     border-collapse: collapse;
     width: 100%;
@@ -255,7 +255,7 @@ table
 .table-wrapper.report-table { width: auto;overflow: auto;}
 .table-wrapper.report-table td {border-top: solid 1px #afafaf;}
 
-table td {
+table.EditorTable td {
     padding: 5px 5px 5px 10px;
     height: 24px;
     border-right: dashed 1px #afafaf;
@@ -264,10 +264,10 @@ table td {
     word-break: break-all;
 }
 
-table tr.odd { background: #fff;}
-table tr:nth-child(2n) td { background: #f5f5f5;}
-li > table tr:nth-child(2n) td,
-.company-data table tr:nth-child(2n) td { background: none;}
+table.EditorTable tr.odd { background: #fff;}
+table.EditorTable tr:nth-child(2n) td { background: #f5f5f5;}
+li > table.EditorTable tr:nth-child(2n) td,
+.company-data table.EditorTable tr:nth-child(2n) td { background: none;}
 
 table#payrollContainer tr td {background: none;}
 table#singlePayrollGeneralData td { background: none;}
@@ -276,7 +276,7 @@ table.no-header td { border: none;background: none;}
 
 table td.errorField { padding: 0;}
 
-table th {
+table.EditorTable th {
     background: none repeat scroll 0 0 #B1B1B1;
     border-right: 1px solid #848484;
     box-shadow: 0 1px 1px white;
@@ -288,8 +288,8 @@ table th {
     width: auto;
     text-align: left;
 }
-table th:last-child, table td:last-child { border-right: none;}
-table tr:last-child td { border-bottom: none;}
+table.EditorTable th:last-child, table td:last-child { border-right: none;}
+table.EditorTable tr:last-child td { border-bottom: none;}
 
 
 .tAmount { width: 110px;}
@@ -297,8 +297,8 @@ table tr:last-child td { border-bottom: none;}
 .tAmount.positive { text-align: right;color: #317f1f;}
 .tAmount.negative { text-align: right;color: red;}
 
-table th.digital-presentation, table td.digital-presentation { text-align: right;padding: 5px 10px 5px 5px;}
-table td.digital-presentation input {text-align: right;}
+table.EditorTable th.digital-presentation, table td.digital-presentation { text-align: right;padding: 5px 10px 5px 5px;}
+table.EditorTable td.digital-presentation input {text-align: right;}
 
 #countDate.in-popup { width: 100px;}
 
@@ -327,3 +327,27 @@ table td.digital-presentation input {text-align: right;}
 .iconed-button.add { background-image: url(images/icon16_apply_orange.png);}
 .iconed-button.closePeriod { background-image: url(images/icon16_lock.png); margin-right: 0;}
 .iconed-button.openPeriod { background-image: url(images/icon16_unlock.png); margin-right: 0;}
+
+/*===================================================================================*/
+/*==================== TIME CHART ===================================================*/
+/*===================================================================================*/
+table.TimeChartTable
+{
+    border-collapse: collapse;
+    border: 1px solid black;
+    vertical-align: middle;
+    text-align: center;
+    width: auto;
+}
+
+table.TimeChartTable td
+{
+    border: 1px;
+    border-color: rgb(220, 220, 220);
+    border-style: solid;
+    padding: 0 0 0 0;
+    height: auto;
+}
+
+.hoverRow { background-color: yellow; }
+.clickedRow { background-color: orange; }

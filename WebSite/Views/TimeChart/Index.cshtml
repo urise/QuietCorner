@@ -1,0 +1,33 @@
+﻿@using System.Web.Optimization
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Time Chart</h2>
+<table id="sheetTable" class="TimeChartTable">
+    <tr>
+        @for(int col = 0; col < 24; col++)
+        {
+            <td width="20" colspan="2">
+                <label id="column-header-@col" class="column-header">@col</label>
+            </td>
+        }
+    </tr>
+    @for(int row = 0; row < 30; row++)
+    {
+        <tr height="20">
+            @for(int col = 0; col < 24*2; col++)
+            {
+                <td class="cell-@(col/2)" width="20"></td>
+            }
+        </tr>
+    }
+
+</table>
+@Scripts.Render("~/Scripts/TimeChart.js")
+@*@Scripts.Render("~/Scripts/hltable.js");
+<script type="text/javascript">
+    
+    highlightTableCells("sheetTable", "hoverRow", "clickedRow");
+
+</script>*@
