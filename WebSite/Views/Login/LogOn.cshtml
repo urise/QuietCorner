@@ -115,7 +115,7 @@
                 function () {
                     if ($(this).hasClass('disabled')) return;
                     $(document).off('ajaxStop');
-                    window.ajaxCallSingleton('@Url.Action("LogonToInstance")', 'Post', { instanceId: $("#companiesSelector :selected").val() }, function (r) {
+                    window.ajaxCallSingleton('@Url.Action("LogonToInstanceJson")', 'Post', { instanceId: $("#companiesSelector :selected").val() }, function (r) {
                         window.location.href = '@Url.Action("Home", "Home")';
                     }, null, null, window.progressOverlay.stop);
                 });

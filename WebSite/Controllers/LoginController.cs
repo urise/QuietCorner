@@ -31,12 +31,14 @@ namespace WebSite.Controllers
                 if (SessionHelper.LastUsedInstanceId != null)
                     TempData["LastInstance"] = SessionHelper.LastUsedInstanceId;
                 SelectUserInstances();
+                LogonToInstance(SessionHelper.LastUsedInstanceId ?? 1);
+                return RedirectToAction("Index", "TimeChart");
                 return View();
             }
 
-
             var message = Session[Constants.SESSION_FORCED_LOGOUT] as string;
             if (!string.IsNullOrEmpty(message)) TempData["LoginErrors"] = message;
+            return LogOnWithLoginPassword("123", "123", "");
             return View();
         }
 
@@ -54,8 +56,7 @@ namespace WebSite.Controllers
             return Url.IsLocalUrl(returnUrl) && returnUrl.Length > 1 && returnUrl.StartsWith("/") && !returnUrl.StartsWith("//") && !returnUrl.StartsWith("/\\");
         }
 
-        [HttpPost]
-        public ActionResult LogOn(UserModel model, string returnUrl)
+        public ActionResult LogOnWithLoginPassword(string login, string password, string returnUrl)
         {
             if (ModelState.IsValid)
             {
@@ -64,15 +65,15 @@ namespace WebSite.Controllers
                 {
                     case AuthenticationType.Native:
                         salt = RandomHelper.GetRandomString(10);
-                        passwordHash = CryptHelper.GetSha512Base64Hash(salt + CryptHelper.GetSha512Base64Hash(model.Login.ToLower() + model.Password));
+                        passwordHash = CryptHelper.GetSha512Base64Hash(salt + CryptHelper.GetSha512Base64Hash(login.ToLower() + password));
                         break;
                     default:
                         salt = string.Empty;
-                        passwordHash = model.Password;
+                        passwordHash = password;
                         break;
                 }
 
-                LoginResult loginResult = ServiceProxySingleton.Instance.Logon(new LogonArg(model.Login.ToLower(), passwordHash, salt));
+                LoginResult loginResult = ServiceProxySingleton.Instance.Logon(new LogonArg(login.ToLower(), passwordHash, salt));
 
                 if (loginResult.IsSuccess())
                 {
@@ -80,7 +81,7 @@ namespace WebSite.Controllers
                     Session[Constants.SESSION_INSTANCE_ID] = loginResult.InstanceId;
                     SessionHelper.CompanyName = GetViewInstanceName(loginResult.InstanceName);
                     Session[Constants.SESSION_AUTH_INFO] = loginResult.Token;
-                    SessionHelper.UserName = model.Login;
+                    SessionHelper.UserName = login;
                     SessionHelper.LastUsedInstanceId = loginResult.LastUsedInstanceId;
                     Session[Constants.SESSION_FORCED_LOGOUT] = null;
                     SessionHelper.Permissions = loginResult.Access;
@@ -91,7 +92,13 @@ namespace WebSite.Controllers
             }
 
             // If we got this far, something failed, redisplay form
-            return View(model);
+            return View("LogOn");
+        }
+
+        [HttpPost]
+        public ActionResult LogOn(UserModel model, string returnUrl)
+        {
+            return LogOnWithLoginPassword(model.Login, model.Password, returnUrl);
         }
 
         [HttpPost]
@@ -108,7 +115,15 @@ namespace WebSite.Controllers
             SessionHelper.LastUsedInstanceId = loginResult.InstanceId;
             SessionHelper.Permissions = loginResult.Access;
 
-            return Json(new {});
+            return new EmptyResult();
+        }
+
+        [HttpPost]
+        public ActionResult LogonToInstanceJson(int instanceId)
+        {
+            LogonToInstance(instanceId);
+
+            return Json(new { });
         }
 
         public ActionResult SelectInstance()
