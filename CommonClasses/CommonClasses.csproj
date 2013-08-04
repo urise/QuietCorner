@@ -46,6 +46,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Constants.cs" />
+    <Compile Include="DbClasses\Activity.cs" />
     <Compile Include="DbClasses\Component.cs" />
     <Compile Include="DbClasses\ComponentRole.cs" />
     <Compile Include="DbClasses\DataLog.cs" />
@@ -55,6 +56,7 @@
     <Compile Include="DbClasses\IMapping.cs" />
     <Compile Include="DbClasses\Role.cs" />
     <Compile Include="DbClasses\TemporaryCode.cs" />
+    <Compile Include="DbClasses\TimeLog.cs" />
     <Compile Include="DbClasses\User.cs" />
     <Compile Include="DbClasses\UserInstance.cs" />
     <Compile Include="DbClasses\UserRole.cs" />
@@ -85,6 +87,7 @@
     <Compile Include="MethodResults\MethodResult.cs" />
     <Compile Include="Models\RegisterUser.cs" />
     <Compile Include="Models\RoleModel.cs" />
+    <Compile Include="Models\TimeChart\MonthTimeChartModel.cs" />
     <Compile Include="Models\UserInfo.cs" />
     <Compile Include="Models\UserModel.cs" />
     <Compile Include="Models\UserPassword.cs" />
