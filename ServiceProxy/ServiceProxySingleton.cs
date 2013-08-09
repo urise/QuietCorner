@@ -64,11 +64,6 @@ namespace ServiceProxy
 
         #endregion
 
-        public void Delay()
-        {
-            Thread.Sleep(AppConfiguration.ServiceMethodDelay);
-        }
-
         private string GetFullReqUrl(string operation, string parameters, bool sendToken = true)
         {
             var result = AppConfiguration.RestServiceUrl + operation;
