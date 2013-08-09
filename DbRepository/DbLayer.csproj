@@ -53,6 +53,10 @@
     <Compile Include="Migrations\201307190730224_Initial.Designer.cs">
       <DependentUpon>201307190730224_Initial.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201308032133397_TimeLog.cs" />
+    <Compile Include="Migrations\201308032133397_TimeLog.Designer.cs">
+      <DependentUpon>201308032133397_TimeLog.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\DbRepository.cs" />
@@ -78,6 +82,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201307190730224_Initial.resx">
       <DependentUpon>201307190730224_Initial.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201308032133397_TimeLog.resx">
+      <DependentUpon>201308032133397_TimeLog.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
