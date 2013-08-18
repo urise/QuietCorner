@@ -49,13 +49,13 @@
   <ItemGroup>
     <Compile Include="FilteredContext.cs" />
     <Compile Include="MainDbContext.cs" />
-    <Compile Include="Migrations\201307190730224_Initial.cs" />
-    <Compile Include="Migrations\201307190730224_Initial.Designer.cs">
-      <DependentUpon>201307190730224_Initial.cs</DependentUpon>
+    <Compile Include="Migrations\201308182115181_Initial.cs" />
+    <Compile Include="Migrations\201308182115181_Initial.Designer.cs">
+      <DependentUpon>201308182115181_Initial.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201308032133397_TimeLog.cs" />
-    <Compile Include="Migrations\201308032133397_TimeLog.Designer.cs">
-      <DependentUpon>201308032133397_TimeLog.cs</DependentUpon>
+    <Compile Include="Migrations\201308182131407_TimeLog.cs" />
+    <Compile Include="Migrations\201308182131407_TimeLog.Designer.cs">
+      <DependentUpon>201308182131407_TimeLog.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -80,11 +80,11 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201307190730224_Initial.resx">
-      <DependentUpon>201307190730224_Initial.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201308182115181_Initial.resx">
+      <DependentUpon>201308182115181_Initial.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201308032133397_TimeLog.resx">
-      <DependentUpon>201308032133397_TimeLog.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201308182131407_TimeLog.resx">
+      <DependentUpon>201308182131407_TimeLog.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

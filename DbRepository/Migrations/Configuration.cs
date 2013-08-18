@@ -1,6 +1,3 @@
-using CommonClasses;
-using CommonClasses.DbClasses;
-
 namespace DbLayer.Migrations
 {
     using System;
@@ -17,14 +14,18 @@ namespace DbLayer.Migrations
 
         protected override void Seed(DbLayer.MainDbContext context)
         {
-            context.Components.AddOrUpdate(
-                  p => p.ComponentId,
-                  new Component { ComponentId = (int)AccessComponent.Home, ComponentName = "Главная страница" },
-                  new Component { ComponentId = (int)AccessComponent.Instance, ComponentName = "Компания" },
-                  new Component { ComponentId = (int)AccessComponent.Settings, ComponentName = "Настройки" },
-                  new Component { ComponentId = (int)AccessComponent.Users, ComponentName = "Пользователи" },
-                  new Component { ComponentId = (int)AccessComponent.Roles, ComponentName = "Роли" }
-                );
+            //  This method will be called after migrating to the latest version.
+
+            //  You can use the DbSet<T>.AddOrUpdate() helper extension method 
+            //  to avoid creating duplicate seed data. E.g.
+            //
+            //    context.People.AddOrUpdate(
+            //      p => p.FullName,
+            //      new Person { FullName = "Andrew Peters" },
+            //      new Person { FullName = "Brice Lambson" },
+            //      new Person { FullName = "Rowan Miller" }
+            //    );
+            //
         }
     }
 }

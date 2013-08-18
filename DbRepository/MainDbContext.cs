@@ -20,6 +20,8 @@ namespace DbLayer
         public DbSet<Role> Roles { get; set; }
         public DbSet<UserRole> UserRoles { get; set; }
         public DbSet<ComponentRole> ComponentRoles { get; set; }
+        public DbSet<Activity> Activities { get; set; }
+        public DbSet<TimeLog> TimeLogs { get; set; }
 
         #region Auxilliary Properties and Methods
 

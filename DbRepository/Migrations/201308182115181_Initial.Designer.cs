@@ -5,13 +5,13 @@ namespace DbLayer.Migrations
     using System.Data.Entity.Migrations.Infrastructure;
     using System.Resources;
     
-    public sealed partial class TimeLog : IMigrationMetadata
+    public sealed partial class Initial : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(TimeLog));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(Initial));
         
         string IMigrationMetadata.Id
         {
-            get { return "201308032133397_TimeLog"; }
+            get { return "201308182115181_Initial"; }
         }
         
         string IMigrationMetadata.Source
